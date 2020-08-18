@@ -53,9 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Pixel
   m_EditorClassIdentifier: 
-  hashCode: 1355530738
+  hashCode: 93985224
   material: {fileID: 5937899405178854493}
-  materialHashCode: 1279957266
+  materialHashCode: -510395160
   m_Version: 1.1.0
   m_SourceFontFileGUID: b16699862bc859b41875cc40e290354d
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: b16699862bc859b41875cc40e290354d,
@@ -2481,9 +2481,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
