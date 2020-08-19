@@ -1,1 +1,45 @@
-﻿{}
+{
+    "name": "InputManager",
+    "maps": [
+        {
+            "name": "Platform",
+            "id": "c63d7d1c-482a-4745-81d6-f0fe0a2ef0f4",
+            "actions": [
+                {
+                    "name": "Grow",
+                    "type": "Button",
+                    "id": "6c36d7d6-a8ca-485a-a676-29f66a7ee1d0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c0341347-69dd-42a8-89ff-f212f9065469",
+                    "path": "<Touchscreen>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "Grow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Touch",
+            "bindingGroup": "Touch",
+            "devices": [
+                {
+                    "devicePath": "<Touchscreen>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
