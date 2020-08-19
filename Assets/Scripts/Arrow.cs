@@ -2,33 +2,11 @@
 
 public class Arrow : MonoBehaviour
 {
-    private float _angularSpeed = 50f;
-    private Quaternion _defaultRotation;
+    public Vector2 direction => transform.up;
 
-    private void Start()
+    // Direct arrow's rotation to touch's direction
+    public void Redirect(Vector2 touchDirection)
     {
-        _defaultRotation = transform.rotation;
-    }
-
-    private void Update()
-    {
-        Rotate();
-    }
-
-    // Rotate arrow left & right
-    private void Rotate()
-    {
-        transform.Rotate(new Vector3(0f, 0f, _angularSpeed) * Time.deltaTime, Space.Self);
-    }
-
-    // Reset rotation
-    public void Reset()
-    {
-        transform.rotation = _defaultRotation;
-    }
-
-    private void ChangeRotationDirection()
-    {
-
+        transform.up = touchDirection;
     }
 }

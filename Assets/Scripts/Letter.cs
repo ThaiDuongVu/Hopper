@@ -2,12 +2,18 @@
 
 public class Letter : MonoBehaviour
 {
+    private Vector2 _initTouchPosition;
+    private Vector2 _currentTouchPosition;
+
+    private Vector2 _initMousePosition;
+    private Vector2 _currentMousePosition;
+
     public Arrow arrow;
 
-    private float _speed = 20f;
+    private float speed = 20f;
     private Vector2 _movement = Vector2.up;
 
-    private bool _isChangingDirection = false;
+    private bool _isChangingDirection;
 
     private Animator _animator;
 
@@ -33,6 +39,49 @@ public class Letter : MonoBehaviour
             {
                 Fly(_movement);
             }
+            else
+            {
+                transform.rotation = arrow.transform.rotation;
+            }
+        }
+
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                StartChangeDirection();
+                _initTouchPosition = touch.position;
+            }
+            else if (touch.phase == TouchPhase.Moved)
+            {
+                // Change arrow direction
+                _currentTouchPosition = touch.position;
+                arrow.Redirect(-(_currentTouchPosition - _initTouchPosition).normalized);
+            }
+            else if (touch.phase == TouchPhase.Ended)
+            {
+                StopChangeDirection();
+            }
+        }
+
+        // Mouse input for debug purposes
+        // Will remove in production
+        if (Input.GetMouseButtonDown(0))
+        {
+            StartChangeDirection();
+
+            _initMousePosition = Input.mousePosition;
+        }
+        if (Input.GetMouseButton(0))
+        {
+            _currentMousePosition = Input.mousePosition;
+            arrow.Redirect(-(_currentMousePosition - _initMousePosition).normalized);
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            StopChangeDirection();
         }
     }
 
@@ -56,10 +105,8 @@ public class Letter : MonoBehaviour
         mainCamera.SetFocus(false);
         _animator.SetTrigger("fly");
 
-        _movement = arrow.transform.up;
+        _movement = arrow.direction;
         cameraShake.ShakeLight();
-
-        arrow.Reset();
 
         _isChangingDirection = false;
     }
@@ -67,6 +114,11 @@ public class Letter : MonoBehaviour
     // Fly towards a movement Vector
     private void Fly(Vector2 movement)
     {
-        transform.Translate(movement * _speed * Time.deltaTime, Space.World);
+        transform.Translate(movement * speed * Time.deltaTime, Space.World);
+    }
+
+    private void Shake()
+    {
+
     }
 }

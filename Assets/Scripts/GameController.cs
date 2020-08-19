@@ -4,15 +4,40 @@ public class GameController : MonoBehaviour
 {
     public GameState gameState { get; private set; } = GameState.NotStarted;
 
-    private UIController uiController;
+    private UIController _uiController;
 
     private void Awake()
     {
-        uiController = GetComponent<UIController>();
+        _uiController = GetComponent<UIController>();
     }
 
     private void Start()
     {
-        uiController.DisplayInstruction(true, "Tap to start delivery");
+        _uiController.DisplayInstruction(true, "Hold and drag to start delivery");
+    }
+
+    private void Update()
+    {
+        if (Input.touchCount > 0)
+        {
+            if (gameState == GameState.NotStarted)
+            {
+                _uiController.DisplayInstruction(false);
+
+                gameState = GameState.Started;
+            }
+        }
+
+        // Mouse input for debug purposes
+        // Will remove in production
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (gameState == GameState.NotStarted)
+            {
+                _uiController.DisplayInstruction(false);
+
+                gameState = GameState.Started;
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@
 public class MainCamera : MonoBehaviour
 {
     private Animator _animator;
+    private bool _isFocusing = true;
 
     public Transform followTarget;
     private const float InterpolationRatio = 0.2f;
@@ -21,12 +22,26 @@ public class MainCamera : MonoBehaviour
     public void SetFocus(bool value)
     {
         _animator.SetBool("focus", value);
+        _isFocusing = value;
     }
 
     // Follow a target
     private void Follow(Transform target)
     {
-        Vector3 lerpPosition = new Vector3(transform.position.x, target.position.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, lerpPosition, InterpolationRatio);
+        Vector3 position = transform.position;
+
+        Vector3 lerpPosition;
+        if (!_isFocusing)
+        {
+            lerpPosition = new Vector3(0f, target.position.y, position.z);
+        } 
+        else
+        {
+            lerpPosition = new Vector3(target.position.x, target.position.y, position.z);
+        }
+
+        position = Vector3.Lerp(position, lerpPosition, InterpolationRatio);
+
+        transform.position = position;
     }
 }
