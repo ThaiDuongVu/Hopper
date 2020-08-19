@@ -620,3 +620,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 8151396131708699532}
+  mainCamera: {fileID: 0}
+  gameController: {fileID: 0}
