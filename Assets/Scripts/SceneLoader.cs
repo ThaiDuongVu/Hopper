@@ -7,10 +7,11 @@ public class SceneLoader : MonoBehaviour
     private string _sceneToLoad;
 
     public Canvas canvas;
+    private static readonly int Outro = Animator.StringToHash("outro");
 
     private void Awake()
     {
-        _cameraAnimator = Camera.main.GetComponent<Animator>();
+        if (!(Camera.main is null)) _cameraAnimator = Camera.main.GetComponent<Animator>();
     }
 
     private void Update()
@@ -27,7 +28,7 @@ public class SceneLoader : MonoBehaviour
         _sceneToLoad = sceneToLoad;
         canvas.gameObject.SetActive(false);
 
-        _cameraAnimator.SetTrigger("outro");
+        _cameraAnimator.SetTrigger(Outro);
     }
 
     // Reload scene

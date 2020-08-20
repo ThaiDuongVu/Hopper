@@ -14,6 +14,8 @@ public class Platform : MonoBehaviour
     private void Scale()
     {
         float newScale = Random.Range(minScale, maxScale);
-        transform.localScale = new Vector3(newScale, transform.localScale.y, newScale);
+        Vector3 scale = transform.localScale;
+
+        transform.localScale = new Vector3(newScale, scale.y, newScale);
     }
 }

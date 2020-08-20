@@ -2,7 +2,7 @@
 
 public class CameraShake : MonoBehaviour
 {
-    private float _shakeDuration = 0f;
+    private float _shakeDuration;
     private float _shakeAmount = 0.7f;
     private float _decreaseFactor = 1.0f;
 

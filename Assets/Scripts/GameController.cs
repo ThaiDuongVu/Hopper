@@ -66,7 +66,9 @@ public class GameController : MonoBehaviour
     // Spawn a new platform from the current active platform
     public void SpawnPlatform()
     {
-        Vector3 spawnPosition = new Vector3(activePlatform.transform.position.x - 10f, activePlatform.transform.position.y, activePlatform.transform.position.z + 10f);
+        Vector3 platformPosition = activePlatform.transform.position;
+
+        Vector3 spawnPosition = new Vector3(platformPosition.x - 10f, platformPosition.y, platformPosition.z + 10f);
         Quaternion spawnRotation = platform.transform.rotation;
 
         activePlatform = Instantiate(platform, spawnPosition, spawnRotation).GetComponent<Platform>();

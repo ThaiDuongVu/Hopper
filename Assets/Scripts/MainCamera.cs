@@ -3,7 +3,7 @@
 public class MainCamera : MonoBehaviour
 {
     public bool isFollowing { get; set; }
-    public Transform followTartget;
+    public Transform followTarget;
 
     private const float InterpolationRatio = 0.05f;
 
@@ -11,14 +11,19 @@ public class MainCamera : MonoBehaviour
     {
         if (isFollowing)
         {
-            Follow(followTartget);
+            Follow(followTarget);
         }
     }   
 
     private void Follow(Transform target)
     {
-        Vector3 lerpPosition = new Vector3(target.position.x - 5f, transform.position.y, target.position.z - 50f);
-        transform.position = Vector3.Lerp(transform.position, lerpPosition, InterpolationRatio);
+        Vector3 targetPosition = target.position;
+        Vector3 position = transform.position;
+
+        Vector3 lerpPosition = new Vector3(targetPosition.x - 5f, position.y, targetPosition.z - 50f);
+        position = Vector3.Lerp(position, lerpPosition, InterpolationRatio);
+
+        transform.position = position;
 
         if (Mathf.Abs(transform.position.x - lerpPosition.x) < 0.1f)
         {

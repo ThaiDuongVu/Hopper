@@ -14,13 +14,18 @@ public class Player : MonoBehaviour
     private bool _isCharging;
     private bool _isGrounded;
 
-    private Vector3 direction;
+    private Vector3 _direction;
 
     public GameController gameController;
     public UIController uiController;
 
     public MainCamera mainCamera;
     public CameraShake cameraShake;
+
+    public ParticleSystem explosion;
+
+    public PopUpText popUpText;
+    public string[] quotes;
 
     private void OnEnable()
     {
@@ -47,7 +52,7 @@ public class Player : MonoBehaviour
         _isCharging = false;
         _isGrounded = false;
 
-        _rigidBody.AddForce(_hopForce * direction);
+        _rigidBody.AddForce(_hopForce * _direction);
         _hopForce = MinHopForce;
 
         cameraShake.Shake();
@@ -67,7 +72,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        direction = new Vector3(-0.7f, 1f, 0.7f);
+        _direction = new Vector3(-0.7f, 1f, 0.7f);
     }
 
     private void Update()
@@ -80,7 +85,7 @@ public class Player : MonoBehaviour
         }
 
         Vector3 position = transform.position;
-        if (position.y < -30f)
+        if (position.y < -40f)
         {
             gameController.GameOver();
             Destroy(gameObject);
@@ -99,6 +104,12 @@ public class Player : MonoBehaviour
             // TODO: More comprehensive score system
             gameController.AddScore(1);
             _isGrounded = true;
+
+            Instantiate(explosion, transform.position, explosion.transform.rotation);
+            if (gameController.gameState == GameState.Started)
+            {
+                popUpText.Pop(quotes[Random.Range(0, quotes.Length)]);
+            }
 
             cameraShake.Shake();
         }

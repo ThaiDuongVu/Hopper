@@ -127,3 +127,13 @@ MonoBehaviour:
   uiController: {fileID: 0}
   mainCamera: {fileID: 0}
   cameraShake: {fileID: 0}
+  explosion: {fileID: 2248870971675203982, guid: a72e524d12b8eeb439ef83123b2820f4,
+    type: 3}
+  popUpText: {fileID: 0}
+  quotes:
+  - Noice!
+  - Yay!
+  - Awesome!
+  - Fantastic!
+  - Incredible!
+  - Good!
