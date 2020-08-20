@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7755544758492131809}
   - component: {fileID: 7755544758492131810}
   - component: {fileID: 165585584}
+  - component: {fileID: 767018301}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   platform: {fileID: 3084824148706804431, guid: 7424af90676da9d4ab5be15e1e259cd3,
     type: 3}
   activePlatform: {fileID: 0}
+  gameOverMenu: {fileID: 0}
 --- !u!114 &165585584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,3 +62,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instructionText: {fileID: 0}
+  forceSlider: {fileID: 0}
+  scoreText: {fileID: 0}
+--- !u!114 &767018301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7755544758492131808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f925c9cbe40755144bd01881eadcf9b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}

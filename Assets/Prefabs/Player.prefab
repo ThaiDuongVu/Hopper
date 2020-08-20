@@ -123,4 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62dd92612eedcce44b782ba8b7470d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
   uiController: {fileID: 0}
+  mainCamera: {fileID: 0}
+  cameraShake: {fileID: 0}

@@ -7,18 +7,10 @@ public class UIController : MonoBehaviour
     public TMP_Text instructionText;
     public Slider forceSlider;
 
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-        
-    }
+    public TMP_Text scoreText;
 
     // Display an instruction message
-    public void DiplayInstruction(bool value, string message = "")
+    public void DisplayInstruction(bool value, string message = "")
     {
         instructionText.text = message;
         instructionText.gameObject.SetActive(value);
@@ -28,5 +20,11 @@ public class UIController : MonoBehaviour
     public void DisplayForceSlider(float force, float minForce, float maxForce)
     {
         forceSlider.value = (force / maxForce);
+    }
+    
+    // Display score text
+    public void DisplayScore(int score)
+    {
+        scoreText.text = score.ToString();
     }
 }

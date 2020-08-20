@@ -10,11 +10,6 @@ public class Platform : MonoBehaviour
         Scale();
     }
 
-    private void Update()
-    {
-        
-    }
-
     // Generate a random scale along the x and z axis
     private void Scale()
     {

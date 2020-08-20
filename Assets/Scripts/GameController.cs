@@ -12,6 +12,11 @@ public class GameController : MonoBehaviour
 
     private UIController _uiController;
 
+    public int score { get; set; }
+    private int _highScore;
+
+    public GameObject gameOverMenu;
+
     private void OnEnable()
     {
         _inputManager = new InputManager();
@@ -27,7 +32,7 @@ public class GameController : MonoBehaviour
     {
         if (gameState == GameState.NotStarted)
         {
-            _uiController.DiplayInstruction(false);
+            _uiController.DisplayInstruction(false);
 
             gameState = GameState.Started;
         }
@@ -47,12 +52,15 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        _uiController.DisplayInstruction(true, "Tap and hold to start hopping");
+        gameOverMenu.SetActive(false);
+
         SpawnPlatform();
     }
 
     private void Update()
     {
-
+        _uiController.DisplayScore(score);
     }
 
     // Spawn a new platform from the current active platform
@@ -62,5 +70,16 @@ public class GameController : MonoBehaviour
         Quaternion spawnRotation = platform.transform.rotation;
 
         activePlatform = Instantiate(platform, spawnPosition, spawnRotation).GetComponent<Platform>();
+    }
+
+    public void AddScore(int value)
+    {
+        score += value;
+    }
+
+    public void GameOver()
+    {
+        gameOverMenu.SetActive(true);
+        gameState = GameState.GameOver;
     }
 }

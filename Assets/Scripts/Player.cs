@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private const float MaxHopForce = 1000f;
 
     private bool _isCharging;
+    private bool _isGrounded;
 
     private Vector3 direction;
 
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     public UIController uiController;
 
     public MainCamera mainCamera;
+    public CameraShake cameraShake;
 
     private void OnEnable()
     {
@@ -34,15 +36,21 @@ public class Player : MonoBehaviour
 
     private void ChargeOnPerformed(InputAction.CallbackContext context)
     {
-        _isCharging = true;
+        if (_isGrounded)
+        {
+            _isCharging = true;
+        }
     }
 
     private void ChargeOnCanceled(InputAction.CallbackContext context)
     {
         _isCharging = false;
+        _isGrounded = false;
 
         _rigidBody.AddForce(_hopForce * direction);
         _hopForce = MinHopForce;
+
+        cameraShake.Shake();
     }
 
     #endregion
@@ -70,7 +78,16 @@ public class Player : MonoBehaviour
         {
             _hopForce += 500f * Time.deltaTime;
         }
+
+        Vector3 position = transform.position;
+        if (position.y < -30f)
+        {
+            gameController.GameOver();
+            Destroy(gameObject);
+        }
     }
+
+    #region Collision Methods
 
     private void OnCollisionEnter(Collision other)
     {
@@ -78,6 +95,14 @@ public class Player : MonoBehaviour
         {
             gameController.SpawnPlatform();
             mainCamera.isFollowing = true;
+
+            // TODO: More comprehensive score system
+            gameController.AddScore(1);
+            _isGrounded = true;
+
+            cameraShake.Shake();
         }
     }
+
+    #endregion
 }
