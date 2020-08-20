@@ -2,13 +2,13 @@
     "name": "InputManager",
     "maps": [
         {
-            "name": "Platform",
-            "id": "c63d7d1c-482a-4745-81d6-f0fe0a2ef0f4",
+            "name": "Game",
+            "id": "239c9061-28c3-41c9-a371-f47a3e5b5ec5",
             "actions": [
                 {
-                    "name": "Grow",
+                    "name": "Start",
                     "type": "Button",
-                    "id": "6c36d7d6-a8ca-485a-a676-29f66a7ee1d0",
+                    "id": "032d9e1f-8c8a-43e5-a51c-7c6f4f9a545d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -17,12 +17,39 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "c0341347-69dd-42a8-89ff-f212f9065469",
+                    "id": "940c2713-5934-4a3c-9c87-c094e14a2dd1",
                     "path": "<Touchscreen>/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "Touch",
-                    "action": "Grow",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Player",
+            "id": "3ec68bfd-54b0-4929-b53d-4011b96c420f",
+            "actions": [
+                {
+                    "name": "Charge",
+                    "type": "Button",
+                    "id": "1ad58ad1-2ac8-4d35-9cd3-3c6697da0d1c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d1033c4b-fcf3-4032-8c3b-cc39cc6a0ecc",
+                    "path": "<Touchscreen>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "Charge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

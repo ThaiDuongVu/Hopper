@@ -15,13 +15,13 @@ public class @InputManager : IInputActionCollection, IDisposable
     ""name"": ""InputManager"",
     ""maps"": [
         {
-            ""name"": ""Platform"",
-            ""id"": ""c63d7d1c-482a-4745-81d6-f0fe0a2ef0f4"",
+            ""name"": ""Game"",
+            ""id"": ""239c9061-28c3-41c9-a371-f47a3e5b5ec5"",
             ""actions"": [
                 {
-                    ""name"": ""Grow"",
+                    ""name"": ""Start"",
                     ""type"": ""Button"",
-                    ""id"": ""6c36d7d6-a8ca-485a-a676-29f66a7ee1d0"",
+                    ""id"": ""032d9e1f-8c8a-43e5-a51c-7c6f4f9a545d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -30,12 +30,39 @@ public class @InputManager : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""c0341347-69dd-42a8-89ff-f212f9065469"",
+                    ""id"": ""940c2713-5934-4a3c-9c87-c094e14a2dd1"",
                     ""path"": ""<Touchscreen>/press"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Touch"",
-                    ""action"": ""Grow"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Player"",
+            ""id"": ""3ec68bfd-54b0-4929-b53d-4011b96c420f"",
+            ""actions"": [
+                {
+                    ""name"": ""Charge"",
+                    ""type"": ""Button"",
+                    ""id"": ""1ad58ad1-2ac8-4d35-9cd3-3c6697da0d1c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d1033c4b-fcf3-4032-8c3b-cc39cc6a0ecc"",
+                    ""path"": ""<Touchscreen>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch"",
+                    ""action"": ""Charge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -56,9 +83,12 @@ public class @InputManager : IInputActionCollection, IDisposable
         }
     ]
 }");
-        // Platform
-        m_Platform = asset.FindActionMap("Platform", throwIfNotFound: true);
-        m_Platform_Grow = m_Platform.FindAction("Grow", throwIfNotFound: true);
+        // Game
+        m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
+        m_Game_Start = m_Game.FindAction("Start", throwIfNotFound: true);
+        // Player
+        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+        m_Player_Charge = m_Player.FindAction("Charge", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -105,38 +135,71 @@ public class @InputManager : IInputActionCollection, IDisposable
         asset.Disable();
     }
 
-    // Platform
-    private readonly InputActionMap m_Platform;
-    private IPlatformActions m_PlatformActionsCallbackInterface;
-    private readonly InputAction m_Platform_Grow;
-    public struct PlatformActions
+    // Game
+    private readonly InputActionMap m_Game;
+    private IGameActions m_GameActionsCallbackInterface;
+    private readonly InputAction m_Game_Start;
+    public struct GameActions
     {
         private @InputManager m_Wrapper;
-        public PlatformActions(@InputManager wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Grow => m_Wrapper.m_Platform_Grow;
-        public InputActionMap Get() { return m_Wrapper.m_Platform; }
+        public GameActions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Start => m_Wrapper.m_Game_Start;
+        public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlatformActions set) { return set.Get(); }
-        public void SetCallbacks(IPlatformActions instance)
+        public static implicit operator InputActionMap(GameActions set) { return set.Get(); }
+        public void SetCallbacks(IGameActions instance)
         {
-            if (m_Wrapper.m_PlatformActionsCallbackInterface != null)
+            if (m_Wrapper.m_GameActionsCallbackInterface != null)
             {
-                @Grow.started -= m_Wrapper.m_PlatformActionsCallbackInterface.OnGrow;
-                @Grow.performed -= m_Wrapper.m_PlatformActionsCallbackInterface.OnGrow;
-                @Grow.canceled -= m_Wrapper.m_PlatformActionsCallbackInterface.OnGrow;
+                @Start.started -= m_Wrapper.m_GameActionsCallbackInterface.OnStart;
+                @Start.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnStart;
+                @Start.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnStart;
             }
-            m_Wrapper.m_PlatformActionsCallbackInterface = instance;
+            m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Grow.started += instance.OnGrow;
-                @Grow.performed += instance.OnGrow;
-                @Grow.canceled += instance.OnGrow;
+                @Start.started += instance.OnStart;
+                @Start.performed += instance.OnStart;
+                @Start.canceled += instance.OnStart;
             }
         }
     }
-    public PlatformActions @Platform => new PlatformActions(this);
+    public GameActions @Game => new GameActions(this);
+
+    // Player
+    private readonly InputActionMap m_Player;
+    private IPlayerActions m_PlayerActionsCallbackInterface;
+    private readonly InputAction m_Player_Charge;
+    public struct PlayerActions
+    {
+        private @InputManager m_Wrapper;
+        public PlayerActions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Charge => m_Wrapper.m_Player_Charge;
+        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerActions instance)
+        {
+            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
+            {
+                @Charge.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharge;
+                @Charge.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharge;
+                @Charge.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharge;
+            }
+            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Charge.started += instance.OnCharge;
+                @Charge.performed += instance.OnCharge;
+                @Charge.canceled += instance.OnCharge;
+            }
+        }
+    }
+    public PlayerActions @Player => new PlayerActions(this);
     private int m_TouchSchemeIndex = -1;
     public InputControlScheme TouchScheme
     {
@@ -146,8 +209,12 @@ public class @InputManager : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_TouchSchemeIndex];
         }
     }
-    public interface IPlatformActions
+    public interface IGameActions
     {
-        void OnGrow(InputAction.CallbackContext context);
+        void OnStart(InputAction.CallbackContext context);
+    }
+    public interface IPlayerActions
+    {
+        void OnCharge(InputAction.CallbackContext context);
     }
 }
