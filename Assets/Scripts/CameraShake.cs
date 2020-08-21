@@ -3,21 +3,27 @@
 public class CameraShake : MonoBehaviour
 {
     private float _shakeDuration;
-    private float _shakeAmount = 0.7f;
-    private float _decreaseFactor = 1.0f;
+    private float _shakeIntensity;
+    private float _decreaseFactor;
 
     private Vector3 _originalPosition;
 
-    private void OnEnable()
+    private void Start()
     {
         _originalPosition = transform.position;
     }
 
     private void Update()
     {
+        Randomize();
+    }
+
+    // When camera shakes, randomize its position by shake intensity
+    private void Randomize()
+    {
         if (_shakeDuration > 0)
         {
-            transform.localPosition = _originalPosition + Random.insideUnitSphere * _shakeAmount;
+            transform.localPosition = _originalPosition + Random.insideUnitSphere * _shakeIntensity;
             _shakeDuration -= Time.deltaTime * _decreaseFactor;
         }
         else
@@ -27,10 +33,11 @@ public class CameraShake : MonoBehaviour
         }
     }
 
+    // Shake the came
     public void Shake()
     {
         _shakeDuration = 0.2f;
-        _shakeAmount = 0.3f;
+        _shakeIntensity = 0.3f;
         _decreaseFactor = 2f;
     }
 }

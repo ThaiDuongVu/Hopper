@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
             Instantiate(explosion, transform.position, explosion.transform.rotation);
             if (gameController.gameState == GameState.Started)
             {
-                popUpText.Pop(quotes[Random.Range(0, quotes.Length)]);
+                popUpText.Init(quotes[Random.Range(0, quotes.Length)]);
             }
 
             _animator.SetTrigger("land");

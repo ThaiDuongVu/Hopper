@@ -15,6 +15,7 @@ public class MainCamera : MonoBehaviour
         }
     }
 
+    // Camera follow a target
     private void Follow(Transform target)
     {
         Vector3 targetPosition = target.position;

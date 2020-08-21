@@ -17,6 +17,7 @@ public class Trail : MonoBehaviour
         }
     }
 
+    // Follow an object ot leave a trail
     private void Follow(Transform target)
     {
         transform.position = Vector3.Lerp(transform.position, target.transform.position, InterpolationRatio);

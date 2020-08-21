@@ -10,7 +10,7 @@ public class Platform : MonoBehaviour
         Scale();
     }
 
-    // Generate a random scale along the x and z axis
+    // Generate a random scale along the x and z axis to increase game variety
     private void Scale()
     {
         float newScale = Random.Range(minScale, maxScale);

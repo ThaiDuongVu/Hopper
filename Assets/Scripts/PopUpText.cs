@@ -5,7 +5,7 @@ public class PopUpText : MonoBehaviour
 {
     private Animator _animator;
     private TMP_Text _text;
-    private static readonly int SPop = Animator.StringToHash("pop");
+    private static readonly int Pop = Animator.StringToHash("pop");
 
     private void Awake()
     {
@@ -13,9 +13,10 @@ public class PopUpText : MonoBehaviour
         _text = GetComponent<TMP_Text>();
     }
 
-    public void Pop(string message)
+    // Pop up a new message on screen
+    public void Init(string message)
     {
         _text.text = message;
-        _animator.SetTrigger(SPop);
+        _animator.SetTrigger(Pop);
     }
 }

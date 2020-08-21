@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7755544758492131809}
   - component: {fileID: 7755544758492131810}
+  - component: {fileID: 7974293132351053782}
   - component: {fileID: 165585584}
   - component: {fileID: 767018301}
   m_Layer: 0
@@ -47,9 +48,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 9063046311802574279, guid: 7424af90676da9d4ab5be15e1e259cd3,
     type: 3}
-  activePlatform: {fileID: 0}
+  nextPlatform: {fileID: 0}
+  currentPlatform: {fileID: 0}
   scoreTextAnimator: {fileID: 0}
   gameOverMenu: {fileID: 0}
+--- !u!114 &7974293132351053782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7755544758492131808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa2509abe12040a40954365c985d3ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &165585584
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1434,7 +1434,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7755544758492131810, guid: 99e2e852462c3f54cbbee35170a17ebb,
         type: 3}
-      propertyPath: activePlatform
+      propertyPath: nextPlatform
+      value: 
+      objectReference: {fileID: 1427793148}
+    - target: {fileID: 7755544758492131810, guid: 99e2e852462c3f54cbbee35170a17ebb,
+        type: 3}
+      propertyPath: currentPlatform
       value: 
       objectReference: {fileID: 1427793148}
     - target: {fileID: 7755544758492131810, guid: 99e2e852462c3f54cbbee35170a17ebb,
@@ -1447,16 +1452,6 @@ PrefabInstance:
       propertyPath: gameOverMenu
       value: 
       objectReference: {fileID: 626855252}
-    - target: {fileID: 7755544758492131810, guid: 99e2e852462c3f54cbbee35170a17ebb,
-        type: 3}
-      propertyPath: nextPlatform
-      value: 
-      objectReference: {fileID: 1427793148}
-    - target: {fileID: 7755544758492131810, guid: 99e2e852462c3f54cbbee35170a17ebb,
-        type: 3}
-      propertyPath: currentPlatform
-      value: 
-      objectReference: {fileID: 1427793148}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99e2e852462c3f54cbbee35170a17ebb, type: 3}
 --- !u!1 &1581898306
@@ -2334,16 +2329,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9063046311402282696, guid: 7424af90676da9d4ab5be15e1e259cd3,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063046311402282696, guid: 7424af90676da9d4ab5be15e1e259cd3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.125
-      objectReference: {fileID: 0}
     - target: {fileID: 9063046311802574272, guid: 7424af90676da9d4ab5be15e1e259cd3,
         type: 3}
       propertyPath: m_LocalPosition.x

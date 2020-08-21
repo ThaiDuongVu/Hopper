@@ -15,6 +15,9 @@ public class GameController : MonoBehaviour
 
     private int _score;
     private int _highScore;
+    private bool _newHighScore;
+
+    private ComboController _comboController;
 
     public Animator scoreTextAnimator;
     private static readonly int Score = Animator.StringToHash("score");
@@ -50,6 +53,7 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         _uiController = GetComponent<UIController>();
+        _comboController = GetComponent<ComboController>();
     }
 
     private void Start()
@@ -57,12 +61,13 @@ public class GameController : MonoBehaviour
         _uiController.DisplayInstruction(true, "Tap and hold to start hopping");
         gameOverMenu.SetActive(false);
 
-        // SpawnPlatform();
+        _highScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
     private void Update()
     {
         _uiController.DisplayScore(_score);
+        CheckHighScore();
     }
 
     // Spawn a new platform from the current active platform
@@ -80,10 +85,29 @@ public class GameController : MonoBehaviour
     // Add a value to score
     public void AddScore(int value)
     {
-        _score += value;
+        _score += value * _comboController.comboMultiplier;
+        _comboController.AddCombo();
+        
         scoreTextAnimator.SetTrigger(Score);
     }
 
+    // Check if current score is greater than high score, if so save the new high score
+    private void CheckHighScore()
+    {
+        if (_score > _highScore)
+        {
+            _highScore = _score;
+            PlayerPrefs.SetInt("HighScore", _highScore);
+
+            if (!_newHighScore)
+            {
+                _newHighScore = true;
+                // TODO: New high score!
+            }
+        }
+    }
+
+    // When game over
     public void GameOver()
     {
         gameOverMenu.SetActive(true);
