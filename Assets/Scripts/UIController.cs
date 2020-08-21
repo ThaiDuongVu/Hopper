@@ -17,11 +17,11 @@ public class UIController : MonoBehaviour
     }
 
     // Display the player's hop force slider
-    public void DisplayForceSlider(float force, float minForce, float maxForce)
+    public void DisplayForceSlider(float force, float maxForce)
     {
         forceSlider.value = (force / maxForce);
     }
-    
+
     // Display score text
     public void DisplayScore(int score)
     {

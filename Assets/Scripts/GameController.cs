@@ -12,8 +12,11 @@ public class GameController : MonoBehaviour
 
     private UIController _uiController;
 
-    public int score { get; set; }
+    private int _score;
     private int _highScore;
+
+    public Animator scoreTextAnimator;
+    private static readonly int Score = Animator.StringToHash("score");
 
     public GameObject gameOverMenu;
 
@@ -30,12 +33,10 @@ public class GameController : MonoBehaviour
 
     private void StartOnPerformed(InputAction.CallbackContext context)
     {
-        if (gameState == GameState.NotStarted)
-        {
-            _uiController.DisplayInstruction(false);
+        if (gameState != GameState.NotStarted) return;
 
-            gameState = GameState.Started;
-        }
+        _uiController.DisplayInstruction(false);
+        gameState = GameState.Started;
     }
 
     #endregion
@@ -55,12 +56,12 @@ public class GameController : MonoBehaviour
         _uiController.DisplayInstruction(true, "Tap and hold to start hopping");
         gameOverMenu.SetActive(false);
 
-        SpawnPlatform();
+        // SpawnPlatform();
     }
 
     private void Update()
     {
-        _uiController.DisplayScore(score);
+        _uiController.DisplayScore(_score);
     }
 
     // Spawn a new platform from the current active platform
@@ -74,9 +75,11 @@ public class GameController : MonoBehaviour
         activePlatform = Instantiate(platform, spawnPosition, spawnRotation).GetComponent<Platform>();
     }
 
+    // Add a value to score
     public void AddScore(int value)
     {
-        score += value;
+        _score += value;
+        scoreTextAnimator.SetTrigger(Score);
     }
 
     public void GameOver()

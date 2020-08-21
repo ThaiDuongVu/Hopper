@@ -9,11 +9,11 @@ public class MainCamera : MonoBehaviour
 
     private void Update()
     {
-        if (isFollowing)
+        if (isFollowing && followTarget != null)
         {
             Follow(followTarget);
         }
-    }   
+    }
 
     private void Follow(Transform target)
     {

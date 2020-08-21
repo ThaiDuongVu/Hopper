@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     public PopUpText popUpText;
     public string[] quotes;
 
+    private Animator _animator;
+
     private void OnEnable()
     {
         _inputManager = new InputManager();
@@ -44,6 +46,7 @@ public class Player : MonoBehaviour
         if (_isGrounded)
         {
             _isCharging = true;
+            _animator.SetTrigger("charge");
         }
     }
 
@@ -54,6 +57,8 @@ public class Player : MonoBehaviour
 
         _rigidBody.AddForce(_hopForce * _direction);
         _hopForce = MinHopForce;
+
+        _animator.SetTrigger("hop");
 
         cameraShake.Shake();
     }
@@ -68,6 +73,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -77,7 +83,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        uiController.DisplayForceSlider(_hopForce, MinHopForce, MaxHopForce);
+        uiController.DisplayForceSlider(_hopForce, MaxHopForce);
 
         if (_isCharging)
         {
@@ -88,6 +94,8 @@ public class Player : MonoBehaviour
         if (position.y < -40f)
         {
             gameController.GameOver();
+            cameraShake.Shake();
+
             Destroy(gameObject);
         }
     }
@@ -110,6 +118,8 @@ public class Player : MonoBehaviour
             {
                 popUpText.Pop(quotes[Random.Range(0, quotes.Length)]);
             }
+
+            _animator.SetTrigger("land");
 
             cameraShake.Shake();
         }

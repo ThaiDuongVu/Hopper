@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caea9794002c9d84cafab554605a71d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 3084824148706804431, guid: 7424af90676da9d4ab5be15e1e259cd3,
+  platform: {fileID: 9063046311802574279, guid: 7424af90676da9d4ab5be15e1e259cd3,
     type: 3}
   activePlatform: {fileID: 0}
+  scoreTextAnimator: {fileID: 0}
   gameOverMenu: {fileID: 0}
 --- !u!114 &165585584
 MonoBehaviour:

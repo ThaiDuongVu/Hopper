@@ -20,21 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5799f197-c34b-4c60-99d6-923eb27eec86" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/ScoreText.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/ScoreText/Idle.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/ScoreText/Idle.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/ScoreText/Score.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/ScoreText/Score.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/ScoreText/ScoreText.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/ScoreText/ScoreText.controller.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/PopUpText/Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/PopUpText/Idle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/PopUpText/Pop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/PopUpText/Pop.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Explosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Explosion.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameController.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Platform.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Platform.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Trail.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraShake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraShake.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainCamera.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Platform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Platform.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PopUpText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PopUpText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,22 +56,27 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraShake.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainCamera.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Platform.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PopUpText.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Trail.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UIController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Platform.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PopUpText.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainCamera.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1gNLatifVDtBcfg9vVKBIlAYmMb" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -100,7 +113,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597950175611</updated>
       <workItem from="1597950184450" duration="137000" />
-      <workItem from="1597950377520" duration="1143000" />
+      <workItem from="1597950377520" duration="5616000" />
     </task>
     <servers />
   </component>
@@ -122,6 +135,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">

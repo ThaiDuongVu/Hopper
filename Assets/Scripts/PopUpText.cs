@@ -5,7 +5,7 @@ public class PopUpText : MonoBehaviour
 {
     private Animator _animator;
     private TMP_Text _text;
-    private static readonly int s_Pop = Animator.StringToHash("pop");
+    private static readonly int SPop = Animator.StringToHash("pop");
 
     private void Awake()
     {
@@ -16,6 +16,6 @@ public class PopUpText : MonoBehaviour
     public void Pop(string message)
     {
         _text.text = message;
-        _animator.SetTrigger(s_Pop);
+        _animator.SetTrigger(SPop);
     }
 }
