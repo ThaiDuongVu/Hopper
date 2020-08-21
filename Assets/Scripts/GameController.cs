@@ -8,7 +8,8 @@ public class GameController : MonoBehaviour
     public GameState gameState { get; private set; }
 
     public GameObject platform;
-    public Platform activePlatform;
+    public Platform nextPlatform;
+    public Platform currentPlatform;
 
     private UIController _uiController;
 
@@ -67,12 +68,13 @@ public class GameController : MonoBehaviour
     // Spawn a new platform from the current active platform
     public void SpawnPlatform()
     {
-        Vector3 platformPosition = activePlatform.transform.position;
+        Vector3 platformPosition = nextPlatform.transform.position;
 
         Vector3 spawnPosition = new Vector3(platformPosition.x - 10f, platformPosition.y, platformPosition.z + 10f);
         Quaternion spawnRotation = platform.transform.rotation;
 
-        activePlatform = Instantiate(platform, spawnPosition, spawnRotation).GetComponent<Platform>();
+        currentPlatform = nextPlatform;
+        nextPlatform = Instantiate(platform, spawnPosition, spawnRotation).GetComponent<Platform>();
     }
 
     // Add a value to score

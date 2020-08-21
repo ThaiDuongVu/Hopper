@@ -46,7 +46,9 @@ public class Player : MonoBehaviour
         if (_isGrounded)
         {
             _isCharging = true;
+
             _animator.SetTrigger("charge");
+            gameController.currentPlatform.GetComponent<Animator>().SetTrigger("charge");
         }
     }
 
@@ -59,6 +61,7 @@ public class Player : MonoBehaviour
         _hopForce = MinHopForce;
 
         _animator.SetTrigger("hop");
+        gameController.currentPlatform.GetComponent<Animator>().SetTrigger("hop");
 
         cameraShake.Shake();
     }
@@ -107,6 +110,8 @@ public class Player : MonoBehaviour
         if (other.transform.CompareTag("Platform"))
         {
             gameController.SpawnPlatform();
+            gameController.currentPlatform.GetComponent<Animator>().SetTrigger("land");
+
             mainCamera.isFollowing = true;
 
             // TODO: More comprehensive score system
