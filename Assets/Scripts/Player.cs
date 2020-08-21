@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private bool _isCharging;
     private bool _isGrounded;
 
-    private Vector3 _direction;
+    private Vector3 _direction = new Vector3(-0.7f, 1f, 0.7f);
 
     public GameController gameController;
     public UIController uiController;
@@ -79,28 +79,23 @@ public class Player : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    private void Start()
-    {
-        _direction = new Vector3(-0.7f, 1f, 0.7f);
-    }
-
     private void Update()
     {
         uiController.DisplayForceSlider(_hopForce, MaxHopForce);
 
-        if (_isCharging)
-        {
-            _hopForce += 500f * Time.deltaTime;
-        }
+        if (_isCharging) _hopForce += 500f * Time.deltaTime;
 
         Vector3 position = transform.position;
-        if (position.y < -40f)
-        {
-            gameController.GameOver();
-            cameraShake.Shake();
+        if (position.y < -40f) Die();
+    }
 
-            Destroy(gameObject);
-        }
+    // Die 🤷‍♂️
+    private void Die()
+    {
+        gameController.GameOver();
+        cameraShake.Shake();
+
+        Destroy(gameObject);
     }
 
     #region Collision Methods
@@ -111,6 +106,8 @@ public class Player : MonoBehaviour
         {
             gameController.SpawnPlatform();
             gameController.currentPlatform.GetComponent<Animator>().SetTrigger("land");
+
+            _animator.SetTrigger("land");
 
             mainCamera.isFollowing = true;
 
@@ -123,8 +120,6 @@ public class Player : MonoBehaviour
             {
                 popUpText.Init(quotes[Random.Range(0, quotes.Length)]);
             }
-
-            _animator.SetTrigger("land");
 
             cameraShake.Shake();
         }

@@ -4,10 +4,11 @@ public class ComboController : MonoBehaviour
 {
     public int comboMultiplier { get; set; }
     private float _comboTimer;
-    private const float ComboDecreaseFactor = 0.2f;
+    private const float ComboDecreaseFactor = 0.25f;
     private bool _isDecreasing;
 
     private GameController _gameController;
+    public ComboText comboText;
 
     private void Awake()
     {
@@ -28,6 +29,13 @@ public class ComboController : MonoBehaviour
         {
             SetCombo();
         }
+        else
+        {
+            _comboTimer = 0f;
+            comboMultiplier = 1;
+        }
+        
+        comboText.Scale(comboMultiplier, _comboTimer);
     }
 
     // Add to combo when scoring
@@ -35,6 +43,8 @@ public class ComboController : MonoBehaviour
     {
         comboMultiplier += 1;
         _comboTimer = 1f;
+
+        comboText.AddCombo(comboMultiplier);
     }
 
     // Decrease combo timer over time and set multiplier to 0 if timer reaches 0
