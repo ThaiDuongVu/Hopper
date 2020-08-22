@@ -34,7 +34,7 @@ public class ComboController : MonoBehaviour
             _comboTimer = 0f;
             comboMultiplier = 1;
         }
-        
+
         comboText.Scale(comboMultiplier, _comboTimer);
     }
 

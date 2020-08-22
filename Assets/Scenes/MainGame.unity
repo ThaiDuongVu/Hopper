@@ -1421,6 +1421,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2099278507}
     m_Modifications:
+    - target: {fileID: 7919278859578561012, guid: adbfbca6975fa8a40ab1c62dd88010ae,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 114
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919278859578561012, guid: adbfbca6975fa8a40ab1c62dd88010ae,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 114
+      objectReference: {fileID: 0}
     - target: {fileID: 7919278859578561013, guid: adbfbca6975fa8a40ab1c62dd88010ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1614,6 +1624,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9063046311402282696, guid: 7424af90676da9d4ab5be15e1e259cd3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063046311402282696, guid: 7424af90676da9d4ab5be15e1e259cd3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9063046311802574272, guid: 7424af90676da9d4ab5be15e1e259cd3,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -18,5 +18,5 @@ public class PopUpText : MonoBehaviour
     {
         _text.text = message;
         _animator.SetTrigger(Pop);
-    }
+    } 
 }

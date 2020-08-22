@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
     private void ChargeOnPerformed(InputAction.CallbackContext context)
     {
         if (!_isGrounded) return;
-        
+
         _isCharging = true;
 
         _animator.SetTrigger(Charge);
@@ -57,14 +57,14 @@ public class Player : MonoBehaviour
 
     private void ChargeOnCanceled(InputAction.CallbackContext context)
     {
+        if (!_isCharging) return;
+
         _isCharging = false;
         _isGrounded = false;
 
         _rigidBody.AddForce(_hopForce * _direction);
-        _hopForce = MinHopForce;
 
         _animator.ResetTrigger(Charge);
-
         _animator.SetTrigger(Hop);
         gameController.currentPlatform.GetComponent<Animator>().SetTrigger(Hop);
 
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
     {
         uiController.DisplayForceSlider(_hopForce, MaxHopForce);
 
-        if (_isCharging) 
+        if (_isCharging)
         {
             _hopForce += _forceDelta * Time.deltaTime;
 
@@ -99,6 +99,10 @@ public class Player : MonoBehaviour
             {
                 _forceDelta = -_forceDelta;
             }
+        }
+        else
+        {
+            if (_hopForce > MinHopForce) _hopForce -= _forceDelta * Time.deltaTime;
         }
 
         Vector3 position = transform.position;

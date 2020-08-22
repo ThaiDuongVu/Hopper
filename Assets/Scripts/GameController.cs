@@ -87,7 +87,7 @@ public class GameController : MonoBehaviour
     {
         _score += value * _comboController.comboMultiplier;
         _comboController.AddCombo();
-        
+
         scoreTextAnimator.SetTrigger(Score);
     }
 
