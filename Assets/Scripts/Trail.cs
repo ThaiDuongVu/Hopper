@@ -7,7 +7,7 @@ public class Trail : MonoBehaviour
 
     private void Update()
     {
-        if (followTarget != null)
+        if (!(followTarget.Equals(null)))
         {
             Follow(followTarget);
         }

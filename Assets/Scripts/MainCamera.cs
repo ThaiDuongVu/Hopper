@@ -9,7 +9,7 @@ public class MainCamera : MonoBehaviour
 
     private void Update()
     {
-        if (isFollowing && followTarget != null)
+        if (isFollowing && !(followTarget.Equals(null)))
         {
             Follow(followTarget);
         }

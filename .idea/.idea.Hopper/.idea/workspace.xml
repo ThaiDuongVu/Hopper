@@ -20,29 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5799f197-c34b-4c60-99d6-923eb27eec86" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/ScoreText.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/ScoreText/Idle.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/ScoreText/Idle.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/ScoreText/Score.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/ScoreText/Score.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/ScoreText/ScoreText.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/ScoreText/ScoreText.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Icon.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/PopUpText/Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/PopUpText/Idle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/PopUpText/Pop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/PopUpText/Pop.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Explosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Explosion.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameController.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Platform.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Platform.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Trail.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ComboText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ComboText.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ComboText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ComboText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DestroyOnExit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DestroyOnExit.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/InputManager.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/InputManager.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainCamera.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Platform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Platform.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PopUpText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PopUpText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Trail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Trail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,13 +49,15 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraShake.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Trail.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UIController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Platform.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PopUpText.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainCamera.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DestroyOnExit.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainCamera.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Trail.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ComboText.cs" />
       </list>
     </option>
   </component>
@@ -114,6 +108,8 @@
       <updated>1597950175611</updated>
       <workItem from="1597950184450" duration="137000" />
       <workItem from="1597950377520" duration="5616000" />
+      <workItem from="1598056265460" duration="78000" />
+      <workItem from="1598056388495" duration="285000" />
     </task>
     <servers />
   </component>

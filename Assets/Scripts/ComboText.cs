@@ -6,6 +6,8 @@ public class ComboText : MonoBehaviour
     private Animator _animator;
     public TMP_Text text;
 
+    private static readonly int Score = Animator.StringToHash("score");
+
     private const float ScaleFactor = 0.5f;
 
     private void Awake()
@@ -16,7 +18,7 @@ public class ComboText : MonoBehaviour
     // Add new combo
     public void AddCombo(int multiplier)
     {
-        _animator.SetTrigger("score");
+        _animator.SetTrigger(Score);
         text.text = "x" + multiplier.ToString();
     }
 

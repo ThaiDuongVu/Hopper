@@ -94,16 +94,15 @@ public class GameController : MonoBehaviour
     // Check if current score is greater than high score, if so save the new high score
     private void CheckHighScore()
     {
-        if (_score > _highScore)
-        {
-            _highScore = _score;
-            PlayerPrefs.SetInt("HighScore", _highScore);
+        if (_score <= _highScore) return;
 
-            if (!_newHighScore)
-            {
-                _newHighScore = true;
-                // TODO: New high score!
-            }
+        _highScore = _score;
+        PlayerPrefs.SetInt("HighScore", _highScore);
+
+        if (!_newHighScore)
+        {
+            _newHighScore = true;
+            // TODO: New high score!
         }
     }
 
