@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private bool _isGrounded;
 
     private readonly Vector3 _direction = new Vector3(-0.7f, 1f, 0.7f);
+    public GameObject pad;
 
     public GameController gameController;
     public UIController uiController;
@@ -32,6 +33,8 @@ public class Player : MonoBehaviour
     private static readonly int Charge = Animator.StringToHash("charge");
     private static readonly int Hop = Animator.StringToHash("hop");
     private static readonly int Land = Animator.StringToHash("land");
+
+    public PerfectPath perfectPath;
 
     private void OnEnable()
     {
@@ -62,6 +65,8 @@ public class Player : MonoBehaviour
         _isCharging = false;
         _isGrounded = false;
 
+        pad.SetActive(false);
+
         _rigidBody.AddForce(_hopForce * _direction);
 
         _animator.ResetTrigger(Charge);
@@ -82,6 +87,11 @@ public class Player : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        pad.SetActive(false);
     }
 
     private void Update()
@@ -124,24 +134,51 @@ public class Player : MonoBehaviour
     {
         if (!other.transform.CompareTag("Platform")) return;
 
+        // Spawn new platform
         gameController.SpawnPlatform();
 
+        // Trigger landing animations
         _animator.SetTrigger(Land);
         gameController.currentPlatform.GetComponent<Animator>().SetTrigger(Land);
 
+        // Camera start following player
         mainCamera.isFollowing = true;
-
-        // TODO: More comprehensive score system
-        gameController.AddScore(1);
         _isGrounded = true;
 
+        // Pad active
+        pad.SetActive(true);
+
+        // Calculate next perfect path
+        perfectPath.CalculatePath(gameController.nextPlatform, this);
+
+        // Add an explosion
         Instantiate(explosion, transform.position, explosion.transform.rotation);
+
         if (gameController.gameState == GameState.Started)
         {
+            // Init pop up text
             popUpText.Init(quotes[Random.Range(0, quotes.Length)]);
+
+            // Add score
+            gameController.AddScore(1);
         }
 
+        // Shake camera
         cameraShake.Shake();
+    }
+
+    #endregion
+
+    #region Trigger Methods
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("PerfectPathPresentor")) return;
+
+        perfectPath.pathCount--;
+        gameController.AddScore(1);
+
+        other.gameObject.SetActive(false);
     }
 
     #endregion

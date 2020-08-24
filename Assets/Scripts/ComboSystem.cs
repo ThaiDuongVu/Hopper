@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class ComboController : MonoBehaviour
+public class ComboSystem : MonoBehaviour
 {
     public int comboMultiplier { get; set; }
     private float _comboTimer;
-    private const float ComboDecreaseFactor = 0.25f;
+    private const float ComboDecreaseFactor = 0.5f;
     private bool _isDecreasing;
 
     private GameController _gameController;

@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
     private int _highScore;
     private bool _newHighScore;
 
-    private ComboController _comboController;
+    private ComboSystem _comboSystem;
 
     public Animator scoreTextAnimator;
     private static readonly int Score = Animator.StringToHash("score");
@@ -53,7 +53,7 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         _uiController = GetComponent<UIController>();
-        _comboController = GetComponent<ComboController>();
+        _comboSystem = GetComponent<ComboSystem>();
     }
 
     private void Start()
@@ -85,8 +85,8 @@ public class GameController : MonoBehaviour
     // Add a value to score
     public void AddScore(int value)
     {
-        _score += value * _comboController.comboMultiplier;
-        _comboController.AddCombo();
+        _score += value * _comboSystem.comboMultiplier;
+        _comboSystem.AddCombo();
 
         scoreTextAnimator.SetTrigger(Score);
     }

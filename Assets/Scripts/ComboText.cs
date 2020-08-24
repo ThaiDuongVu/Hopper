@@ -8,7 +8,7 @@ public class ComboText : MonoBehaviour
 
     private static readonly int Score = Animator.StringToHash("score");
 
-    private const float ScaleFactor = 0.5f;
+    private const float ScaleFactor = 0.25f;
 
     private void Awake()
     {
