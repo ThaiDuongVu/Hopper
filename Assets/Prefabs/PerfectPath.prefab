@@ -43,5 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de018cfe01e990443846cf6d552bc1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathPresentor: {fileID: 5465032606163086796, guid: 816af7b33bf10c543823c7f302bfa8cc,
-    type: 3}
+  coin: {fileID: 5465032606163086796, guid: 816af7b33bf10c543823c7f302bfa8cc, type: 3}

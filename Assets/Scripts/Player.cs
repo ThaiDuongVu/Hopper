@@ -149,7 +149,7 @@ public class Player : MonoBehaviour
         pad.SetActive(true);
 
         // Calculate next perfect path
-        perfectPath.CalculatePath(gameController.nextPlatform, this);
+        perfectPath.CalculateNextPath(gameController.nextPlatform, this);
 
         // Add an explosion
         Instantiate(explosion, transform.position, explosion.transform.rotation);
