@@ -33,11 +33,18 @@ public class CameraShake : MonoBehaviour
         }
     }
 
-    // Shake the came
+    // Shake the camera
     public void Shake()
     {
         _shakeDuration = 0.2f;
         _shakeIntensity = 0.3f;
+        _decreaseFactor = 2f;
+    }
+
+    public void ShakeLight()
+    {
+        _shakeDuration = 0.1f;
+        _shakeIntensity = 0.1f;
         _decreaseFactor = 2f;
     }
 }

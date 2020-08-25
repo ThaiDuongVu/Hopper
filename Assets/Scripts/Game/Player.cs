@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     private static readonly int Land = Animator.StringToHash("land");
 
     public PerfectPath perfectPath;
+    public ParticleSystem smallExplosion;
 
     private void OnEnable()
     {
@@ -173,11 +174,14 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("PerfectPathPresentor")) return;
+        if (!other.CompareTag("Coin")) return;
 
         perfectPath.pathCount--;
         gameController.AddScore(1);
 
+        Instantiate(smallExplosion, other.transform.position, smallExplosion.transform.rotation);
+        cameraShake.ShakeLight();
+        
         other.gameObject.SetActive(false);
     }
 
