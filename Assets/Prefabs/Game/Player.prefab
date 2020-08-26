@@ -273,3 +273,5 @@ MonoBehaviour:
   perfectPath: {fileID: 0}
   smallExplosion: {fileID: 2782182013699607648, guid: 50c1b413c0b02194e84e62b27f003845,
     type: 3}
+  fireworks: {fileID: 995950789243069054, guid: 8519e195d5ccab84da9c7a17b9f1e429,
+    type: 3}

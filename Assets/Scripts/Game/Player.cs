@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
     public PerfectPath perfectPath;
     public ParticleSystem smallExplosion;
 
+    public ParticleSystem fireworks;
+
     private void OnEnable()
     {
         _inputManager = new InputManager();
@@ -129,6 +131,11 @@ public class Player : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void Celebrate()
+    {
+        Instantiate(fireworks, new Vector3(transform.position.x, -10f, transform.position.z), fireworks.transform.rotation);
+    }
+
     #region Collision Methods
 
     private void OnCollisionEnter(Collision other)
@@ -181,7 +188,9 @@ public class Player : MonoBehaviour
 
         Instantiate(smallExplosion, other.transform.position, smallExplosion.transform.rotation);
         cameraShake.ShakeLight();
-        
+
+        if (perfectPath.pathCount <= 0) Celebrate();
+
         other.gameObject.SetActive(false);
     }
 

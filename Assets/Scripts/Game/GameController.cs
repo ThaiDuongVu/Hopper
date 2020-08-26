@@ -24,6 +24,8 @@ public class GameController : MonoBehaviour
 
     public GameObject gameOverMenu;
 
+    public Player player;
+
     private void OnEnable()
     {
         _inputManager = new InputManager();
@@ -59,9 +61,11 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         _uiController.DisplayInstruction(true, "Tap and hold to start hopping");
-        gameOverMenu.SetActive(false);
 
+        _uiController.UpdateHighScore();
         _highScore = PlayerPrefs.GetInt("HighScore", 0);
+
+        gameOverMenu.SetActive(false);
     }
 
     private void Update()
@@ -99,10 +103,12 @@ public class GameController : MonoBehaviour
         _highScore = _score;
         PlayerPrefs.SetInt("HighScore", _highScore);
 
+        _uiController.UpdateHighScore();
+
         if (!_newHighScore)
         {
             _newHighScore = true;
-            // TODO: New high score!
+            player.Celebrate();
         }
     }
 
