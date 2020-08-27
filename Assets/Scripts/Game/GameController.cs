@@ -51,7 +51,7 @@ public class GameController : MonoBehaviour
 
     private void TestOnPerformed(InputAction.CallbackContext context)
     {
-        player.Reset();
+        ad.ShowAd();
     }
 
     #endregion

@@ -45,9 +45,10 @@ public class UIController : MonoBehaviour
         highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0);
     }
 
+    // Display or undisplay the video ad button 
     public void DisplayAdButton()
     {
-        if (ad.adReady && !gameController.adWatched)
+        if (Ad.adReady && !gameController.adWatched)
         {
             adButton.interactable = true;
         }

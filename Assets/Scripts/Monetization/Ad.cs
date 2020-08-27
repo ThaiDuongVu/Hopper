@@ -1,34 +1,29 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.Advertisements;
 
 public class Ad : MonoBehaviour, IUnityAdsListener
 {
-    private const string GameID = "3790119";
-    private bool _testMode = false;
+    public const string GameID = "3790119";
 
     private const string BannerID = "banner";
-    private const string VideoRewardID = "rewardedVideo";
+    public const string VideoRewardID = "rewardedVideo";
 
-    public bool adReady
-    {
-        get => Advertisement.IsReady();
-    }
-
+    public static bool adReady => Advertisement.IsReady(VideoRewardID);
     public GameController gameController;
-    public Player player;
 
     private void Start()
     {
-        Advertisement.Initialize(GameID, _testMode);
         Advertisement.AddListener(this);
+        Advertisement.Initialize(GameID);
 
         StartCoroutine(ShowBannerWhenReady());
     }
 
     #region Banner Ad
 
-    IEnumerator ShowBannerWhenReady()
+    private static IEnumerator ShowBannerWhenReady()
     {
         while (!Advertisement.IsReady(BannerID))
         {
@@ -44,53 +39,57 @@ public class Ad : MonoBehaviour, IUnityAdsListener
     #region Video Reward Ad
 
     // Implement IUnityAdsListener interface methods:
-    public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
+    public void OnUnityAdsDidFinish (string placementId, ShowResult showResult)
     {
-        // Define conditional logic for each ad completion status:
-        if (showResult == ShowResult.Finished)
+        switch (showResult)
         {
-            // Reward the user for watching the ad to completion.
-            player.Reset();
-        }
-        else if (showResult == ShowResult.Skipped)
-        {
-            // Do not reward the user for skipping the ad.
-
-        }
-        else if (showResult == ShowResult.Failed)
-        {
-            Debug.LogWarning("The ad did not finish due to an error.");
+            // Define conditional logic for each ad completion status:
+            case ShowResult.Finished:
+                // Reward the user for watching the ad to completion.
+                break;
+            case ShowResult.Skipped:
+                // Do not reward the user for skipping the ad.
+                break;
+            case ShowResult.Failed:
+                // Log the error
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(showResult), showResult, null);
         }
     }
 
-    public void OnUnityAdsReady(string placementId)
+    public void OnUnityAdsReady (string placementId) 
     {
         // If the ready Placement is rewarded, show the ad:
-        if (placementId == VideoRewardID)
+        if (placementId == VideoRewardID) 
         {
-
+            // Optional actions to take when the placement becomes ready(For example, enable the rewarded ads button)
         }
     }
 
-    public void OnUnityAdsDidError(string message)
+    public void OnUnityAdsDidError (string message) 
     {
         // Log the error.
-        Debug.LogError(message);
     }
 
-    public void OnUnityAdsDidStart(string placementId)
+    public void OnUnityAdsDidStart (string placementId) 
     {
         // Optional actions to take when the end-users triggers an ad.
+    } 
+
+    // When the object that subscribes to ad events is destroyed, remove the listener:
+    public void OnDestroy()
+    {
+        Advertisement.RemoveListener(this);
     }
 
     // Show reward ad
     public void ShowAd()
     {
-        if (Advertisement.IsReady() && !gameController.adWatched)
-        {
-            Advertisement.Show(VideoRewardID);
-            gameController.adWatched = true;
-        }
+        if (!adReady || gameController.adWatched) return;
+
+        Advertisement.Show(VideoRewardID);
+        gameController.adWatched = true;
     }
 
     #endregion

@@ -593,6 +593,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1793849212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4092106171802604697, guid: 2d7abb1f7e658c0458c02e61afe82437,
+    type: 3}
+  m_PrefabInstance: {fileID: 6098630854635157171}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1793849216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793849212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b343f11e1faf404ca54e8cfb96b6004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 767018300}
+  player: {fileID: 1168071162}
 --- !u!1001 &1808393629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -702,7 +722,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 6098630854635157171}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1793849212}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -1309,6 +1329,11 @@ PrefabInstance:
       objectReference: {fileID: 128028231}
     - target: {fileID: 4092106171802604703, guid: 2d7abb1f7e658c0458c02e61afe82437,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092106171802604703, guid: 2d7abb1f7e658c0458c02e61afe82437,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8940527403671108444}
@@ -1874,6 +1899,11 @@ PrefabInstance:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 767018300}
+    - target: {fileID: 8940527405228682305, guid: 18abd7e91bf369b4a99dd802a90e1db0,
+        type: 3}
+      propertyPath: uIController
+      value: 
+      objectReference: {fileID: 767018299}
     - target: {fileID: 8940527405228682306, guid: 18abd7e91bf369b4a99dd802a90e1db0,
         type: 3}
       propertyPath: m_LocalPosition.x
