@@ -128,7 +128,16 @@ public class Player : MonoBehaviour
         gameController.GameOver();
         cameraShake.Shake();
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+    }
+
+    // Reset player to default state
+    public void Reset()
+    {
+        transform.position = new Vector3(gameController.nextPlatform.transform.position.x, -10f, gameController.nextPlatform.transform.position.z);
+        gameObject.SetActive(true);
+
+        gameController.Reset();
     }
 
     public void Celebrate()

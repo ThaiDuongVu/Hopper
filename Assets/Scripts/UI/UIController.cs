@@ -10,6 +10,16 @@ public class UIController : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text highScoreText;
 
+    public Button adButton;
+    public Ad ad;
+
+    public GameController gameController;
+
+    private void Update()
+    {
+        DisplayAdButton();
+    }
+
     // Display an instruction message
     public void DisplayInstruction(bool value, string message = "")
     {
@@ -33,5 +43,17 @@ public class UIController : MonoBehaviour
     public void UpdateHighScore()
     {
         highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0);
+    }
+
+    public void DisplayAdButton()
+    {
+        if (ad.adReady && !gameController.adWatched)
+        {
+            adButton.interactable = true;
+        }
+        else
+        {
+            adButton.interactable = false;
+        }
     }
 }
