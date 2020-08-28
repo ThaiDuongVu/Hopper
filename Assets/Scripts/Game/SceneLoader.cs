@@ -11,7 +11,7 @@ public class SceneLoader : MonoBehaviour
 
     private void Awake()
     {
-        if (!(Camera.main.Equals(null))) _cameraAnimator = Camera.main.GetComponent<Animator>();
+        if (!(Camera.main.Equals(null))) _cameraAnimator = Camera.main.transform.parent.GetComponent<Animator>();
     }
 
     private void Update()

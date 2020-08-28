@@ -432,6 +432,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1793849216, guid: 2d7abb1f7e658c0458c02e61afe82437, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2035335951, guid: 2d7abb1f7e658c0458c02e61afe82437, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -515,6 +519,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4092106171802604703, guid: 2d7abb1f7e658c0458c02e61afe82437,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092106171802604703, guid: 2d7abb1f7e658c0458c02e61afe82437,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 475594753}
@@ -532,6 +541,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092106171802604703, guid: 2d7abb1f7e658c0458c02e61afe82437,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092106171802604703, guid: 2d7abb1f7e658c0458c02e61afe82437,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6098630854223535569, guid: 2d7abb1f7e658c0458c02e61afe82437,
         type: 3}
@@ -1871,6 +1890,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ce60b478d2d96a41a99a9ba5c570034, type: 3}
+--- !u!20 &1808393630 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1485742245, guid: 1ce60b478d2d96a41a99a9ba5c570034,
+    type: 3}
+  m_PrefabInstance: {fileID: 1808393629}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1986223274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,8 +2002,8 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_Camera: {fileID: 1808393630}
+  m_PlaneDistance: 85
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0

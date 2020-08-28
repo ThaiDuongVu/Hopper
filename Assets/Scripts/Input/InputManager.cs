@@ -25,14 +25,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""Test"",
-                    ""type"": ""Button"",
-                    ""id"": ""ba37ede1-060a-4a9d-ba40-625b11d6eb95"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -66,17 +58,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Start"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6ad51621-febf-4157-bcc0-0d4d66ecaae2"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Test"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -171,7 +152,6 @@ public class @InputManager : IInputActionCollection, IDisposable
         // Game
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_Start = m_Game.FindAction("Start", throwIfNotFound: true);
-        m_Game_Test = m_Game.FindAction("Test", throwIfNotFound: true);
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Charge = m_Player.FindAction("Charge", throwIfNotFound: true);
@@ -225,13 +205,11 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Game;
     private IGameActions m_GameActionsCallbackInterface;
     private readonly InputAction m_Game_Start;
-    private readonly InputAction m_Game_Test;
     public struct GameActions
     {
         private @InputManager m_Wrapper;
         public GameActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Start => m_Wrapper.m_Game_Start;
-        public InputAction @Test => m_Wrapper.m_Game_Test;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -244,9 +222,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Start.started -= m_Wrapper.m_GameActionsCallbackInterface.OnStart;
                 @Start.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnStart;
                 @Start.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnStart;
-                @Test.started -= m_Wrapper.m_GameActionsCallbackInterface.OnTest;
-                @Test.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnTest;
-                @Test.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnTest;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -254,9 +229,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Start.started += instance.OnStart;
                 @Start.performed += instance.OnStart;
                 @Start.canceled += instance.OnStart;
-                @Test.started += instance.OnTest;
-                @Test.performed += instance.OnTest;
-                @Test.canceled += instance.OnTest;
             }
         }
     }
@@ -324,7 +296,6 @@ public class @InputManager : IInputActionCollection, IDisposable
     public interface IGameActions
     {
         void OnStart(InputAction.CallbackContext context);
-        void OnTest(InputAction.CallbackContext context);
     }
     public interface IPlayerActions
     {

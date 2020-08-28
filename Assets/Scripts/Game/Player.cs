@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         pad.SetActive(false);
-        SetModels();
+        ApplyModels(PlayerPrefs.GetInt("PlayerModel", 0));
     }
 
     private void Update()
@@ -210,13 +210,13 @@ public class Player : MonoBehaviour
     #endregion
 
     // Set player's character model based on selection
-    private void SetModels()
+    public void ApplyModels(int modelIndex)
     {
         foreach (GameObject model in models)
         {
             model.SetActive(false);
         }
 
-        models[PlayerPrefs.GetInt("PlayerModel", 0)].SetActive(true);
+        models[modelIndex].SetActive(true);
     }
 }

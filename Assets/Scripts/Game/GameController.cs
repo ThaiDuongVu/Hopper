@@ -26,7 +26,6 @@ public class GameController : MonoBehaviour
 
     public Player player;
 
-    public Ad ad;
     public bool adWatched { get; set; }
 
     private void OnEnable()
@@ -34,7 +33,6 @@ public class GameController : MonoBehaviour
         _inputManager = new InputManager();
 
         _inputManager.Game.Start.performed += StartOnPerformed;
-        _inputManager.Game.Test.performed += TestOnPerformed;
 
         _inputManager.Enable();
     }
@@ -47,11 +45,6 @@ public class GameController : MonoBehaviour
 
         _uiController.DisplayInstruction(false);
         gameState = GameState.Started;
-    }
-
-    private void TestOnPerformed(InputAction.CallbackContext context)
-    {
-        ad.ShowAd();
     }
 
     #endregion

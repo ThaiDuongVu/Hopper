@@ -662,6 +662,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ce60b478d2d96a41a99a9ba5c570034, type: 3}
+--- !u!20 &1808393630 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1485742245, guid: 1ce60b478d2d96a41a99a9ba5c570034,
+    type: 3}
+  m_PrefabInstance: {fileID: 1808393629}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1809774770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 890524595256277663, guid: 229aaf746b5bfeb45bf3eb4c45b1f565,
@@ -778,8 +784,8 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_Camera: {fileID: 1808393630}
+  m_PlaneDistance: 85
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -983,6 +989,10 @@ PrefabInstance:
       propertyPath: perfectPath
       value: 
       objectReference: {fileID: 1212935372}
+    - target: {fileID: 2048225393, guid: 0ef92b7bf8d2fc04eaa74de4eaa8c0f7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3015729742398792356, guid: 0ef92b7bf8d2fc04eaa74de4eaa8c0f7,
         type: 3}
       propertyPath: m_Name
