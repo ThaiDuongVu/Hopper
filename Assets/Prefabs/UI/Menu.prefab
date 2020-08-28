@@ -268,6 +268,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1793849216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4092106171802604697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b343f11e1faf404ca54e8cfb96b6004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &6098630854223535571
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +811,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7811674504682175741, guid: 6b486f33a71db57428d1e49802ab495f,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811674504682175741, guid: 6b486f33a71db57428d1e49802ab495f,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
@@ -823,6 +842,12 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b486f33a71db57428d1e49802ab495f, type: 3}
+--- !u!1 &4092106171802604697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7811674504682175739, guid: 6b486f33a71db57428d1e49802ab495f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6098630853682014306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4092106171802604702 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7811674504682175740, guid: 6b486f33a71db57428d1e49802ab495f,

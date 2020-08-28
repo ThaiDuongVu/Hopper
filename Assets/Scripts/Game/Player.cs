@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class Player : MonoBehaviour
     public ParticleSystem smallExplosion;
 
     public ParticleSystem fireworks;
+
+    public List<GameObject> models;
 
     private void OnEnable()
     {
@@ -95,6 +98,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         pad.SetActive(false);
+        SetModels();
     }
 
     private void Update()
@@ -204,4 +208,15 @@ public class Player : MonoBehaviour
     }
 
     #endregion
+
+    // Set player's character model based on selection
+    private void SetModels()
+    {
+        foreach (GameObject model in models)
+        {
+            model.SetActive(false);
+        }
+
+        models[PlayerPrefs.GetInt("PlayerModel", 0)].SetActive(true);
+    }
 }

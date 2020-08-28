@@ -44,5 +44,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 5465032606163086796, guid: 816af7b33bf10c543823c7f302bfa8cc, type: 3}
-  fireworks: {fileID: 995950789243069054, guid: 8519e195d5ccab84da9c7a17b9f1e429,
-    type: 3}

@@ -39,7 +39,7 @@ public class Ad : MonoBehaviour, IUnityAdsListener
     #region Video Reward Ad
 
     // Implement IUnityAdsListener interface methods:
-    public void OnUnityAdsDidFinish (string placementId, ShowResult showResult)
+    public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
     {
         switch (showResult)
         {
@@ -58,24 +58,24 @@ public class Ad : MonoBehaviour, IUnityAdsListener
         }
     }
 
-    public void OnUnityAdsReady (string placementId) 
+    public void OnUnityAdsReady(string placementId)
     {
         // If the ready Placement is rewarded, show the ad:
-        if (placementId == VideoRewardID) 
+        if (placementId == VideoRewardID)
         {
             // Optional actions to take when the placement becomes ready(For example, enable the rewarded ads button)
         }
     }
 
-    public void OnUnityAdsDidError (string message) 
+    public void OnUnityAdsDidError(string message)
     {
         // Log the error.
     }
 
-    public void OnUnityAdsDidStart (string placementId) 
+    public void OnUnityAdsDidStart(string placementId)
     {
         // Optional actions to take when the end-users triggers an ad.
-    } 
+    }
 
     // When the object that subscribes to ad events is destroyed, remove the listener:
     public void OnDestroy()
