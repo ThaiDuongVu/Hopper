@@ -5,7 +5,7 @@ public class Store : MonoBehaviour
 {
     public Player player;
     private Animator _playerAnimator;
-    private int _playerModel;
+    private int _playerModelIndex;
 
     public TMP_Text text;
 
@@ -23,12 +23,13 @@ public class Store : MonoBehaviour
     private void Start()
     {
         player.ApplyModels(PlayerPrefs.GetInt("PlayerModel", 0));
-        _playerModel = PlayerPrefs.GetInt("PlayerModel", 0);
+        _playerModelIndex = PlayerPrefs.GetInt("PlayerModel", 0);
 
         _currentHighScore = PlayerPrefs.GetInt("HighScore", 0);
         currentHighScoreText.text = "Current high score: " + _currentHighScore;
 
         _requiredHighScores = new int[player.models.Count];
+        // Required high score increase by 500 with every model
         for (int i = 0; i < player.models.Count; i++)
         {
             if (i == 0)
@@ -41,47 +42,50 @@ public class Store : MonoBehaviour
             }
         }
 
-        SetText();
+        UpdateText();
     }
 
+    // Toggle player model left or right based on input button
     public void TogglePlayerModel(string direction)
     {
         _playerAnimator.SetTrigger("morph");
 
         if (direction.Equals("left"))
         {
-            if (_playerModel > 0)
+            if (_playerModelIndex > 0)
             {
-                _playerModel--;
+                _playerModelIndex--;
 
-                SetText();
-                player.ApplyModels(_playerModel);
+                UpdateText();
+                player.ApplyModels(_playerModelIndex);
             }
         }
         else
         {
-            if (_playerModel < player.models.Count - 1)
+            if (_playerModelIndex < player.models.Count - 1)
             {
-                _playerModel++;
+                _playerModelIndex++;
 
-                SetText();
-                player.ApplyModels(_playerModel);
+                UpdateText();
+                player.ApplyModels(_playerModelIndex);
             }
         }
     }
 
+    // Apply changes if high score requirements is met
     public void Apply()
     {
-        if (_currentHighScore >= _requiredHighScores[_playerModel])
+        if (_currentHighScore >= _requiredHighScores[_playerModelIndex])
         {
-            PlayerPrefs.SetInt("PlayerModel", _playerModel);
+            PlayerPrefs.SetInt("PlayerModel", _playerModelIndex);
             player.ApplyModels(PlayerPrefs.GetInt("PlayerModel", 0));
         }
     }
 
-    private void SetText()
+    // Update display text based on current selected model
+    private void UpdateText()
     {
-        requiredHighScoreText.text = "Required high score: " + _requiredHighScores[_playerModel];
-        text.text = player.models[_playerModel].name;
+        requiredHighScoreText.text = "Required high score: " + _requiredHighScores[_playerModelIndex];
+        text.text = player.models[_playerModelIndex].name;
     }
 }

@@ -81,7 +81,8 @@ MonoBehaviour:
   forceSlider: {fileID: 0}
   scoreText: {fileID: 0}
   highScoreText: {fileID: 0}
+  newHighScoreText: {fileID: 0}
   adButton: {fileID: 0}
   ad: {fileID: 0}
   gameController: {fileID: 7755544758492131810}
-  combo: {fileID: 0}
+  combo: {fileID: 7974293132351053782}

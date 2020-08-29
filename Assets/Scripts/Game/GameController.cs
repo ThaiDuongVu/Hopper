@@ -111,6 +111,8 @@ public class GameController : MonoBehaviour
         {
             _newHighScore = true;
             player.Celebrate();
+
+            _uiController.DisplayNewHighScore(true);
         }
     }
 

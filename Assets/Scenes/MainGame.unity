@@ -187,6 +187,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78f05bba502c5749a95e45e5914a59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &434553534 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 434553534, guid: 2d7abb1f7e658c0458c02e61afe82437,
+    type: 3}
+  m_PrefabInstance: {fileID: 6098630854635157171}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &626855252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6098630855253490663, guid: 2d7abb1f7e658c0458c02e61afe82437,
@@ -382,6 +394,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6098630854635157172}
     - target: {fileID: 165585584, guid: 99e2e852462c3f54cbbee35170a17ebb, type: 3}
+      propertyPath: newHighScoreText
+      value: 
+      objectReference: {fileID: 434553534}
+    - target: {fileID: 165585584, guid: 99e2e852462c3f54cbbee35170a17ebb, type: 3}
       propertyPath: adButton
       value: 
       objectReference: {fileID: 1985308838}
@@ -389,10 +405,6 @@ PrefabInstance:
       propertyPath: ad
       value: 
       objectReference: {fileID: 8940527403671108444}
-    - target: {fileID: 165585584, guid: 99e2e852462c3f54cbbee35170a17ebb, type: 3}
-      propertyPath: combo
-      value: 
-      objectReference: {fileID: 1879767453}
     - target: {fileID: 7755544758492131808, guid: 99e2e852462c3f54cbbee35170a17ebb,
         type: 3}
       propertyPath: m_Name
@@ -685,18 +697,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378e7d9ae4538504cb49f5447527edbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1879767453 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7974293132351053782, guid: 99e2e852462c3f54cbbee35170a17ebb,
-    type: 3}
-  m_PrefabInstance: {fileID: 1525722704}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa2509abe12040a40954365c985d3ce0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1893583346 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1893583342, guid: 1ce60b478d2d96a41a99a9ba5c570034,
@@ -976,10 +976,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 233495838, guid: 0ef92b7bf8d2fc04eaa74de4eaa8c0f7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2048225393, guid: 0ef92b7bf8d2fc04eaa74de4eaa8c0f7, type: 3}
       propertyPath: gameController
       value: 
@@ -1004,16 +1000,6 @@ PrefabInstance:
       propertyPath: perfectPath
       value: 
       objectReference: {fileID: 1212935372}
-    - target: {fileID: 393394878407135196, guid: 0ef92b7bf8d2fc04eaa74de4eaa8c0f7,
-        type: 3}
-      propertyPath: m_Name
-      value: Rubber Duck
-      objectReference: {fileID: 0}
-    - target: {fileID: 393394878407135196, guid: 0ef92b7bf8d2fc04eaa74de4eaa8c0f7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3015729742398792356, guid: 0ef92b7bf8d2fc04eaa74de4eaa8c0f7,
         type: 3}
       propertyPath: m_Name

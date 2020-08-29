@@ -10,11 +10,18 @@ public class UIController : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text highScoreText;
 
+    public TMP_Text newHighScoreText;
+
     public Button adButton;
     public Ad ad;
 
     public GameController gameController;
-    public ComboSystem combo;
+    public ComboSystem combo;    
+
+    private void Start()
+    {
+        DisplayNewHighScore(false);
+    }
 
     private void Update()
     {
@@ -57,5 +64,11 @@ public class UIController : MonoBehaviour
         {
             adButton.interactable = false;
         }
+    }
+
+    // Set whether to display the new high score text or not
+    public void DisplayNewHighScore(bool value)
+    {
+        newHighScoreText.gameObject.SetActive(value);
     }
 }
