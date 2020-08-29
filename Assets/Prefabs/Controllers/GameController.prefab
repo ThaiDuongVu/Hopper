@@ -52,7 +52,6 @@ MonoBehaviour:
   scoreTextAnimator: {fileID: 0}
   gameOverMenu: {fileID: 0}
   player: {fileID: 0}
-  ad: {fileID: 0}
 --- !u!114 &7974293132351053782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,3 +84,4 @@ MonoBehaviour:
   adButton: {fileID: 0}
   ad: {fileID: 0}
   gameController: {fileID: 7755544758492131810}
+  combo: {fileID: 0}

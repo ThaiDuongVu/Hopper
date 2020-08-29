@@ -36,12 +36,10 @@ public class PerfectPath : MonoBehaviour
             Quaternion spawnRotation = coin.transform.rotation;
 
             spawnPosition = new Vector3(pointInBetween.x + pointIndex * PathSize, pointInBetween.y - pointIndex * PathSize, pointInBetween.z - pointIndex * PathSize);
-            GameObject newCoin = Instantiate(coin, spawnPosition, spawnRotation);
-            coins.Add(newCoin);
+            coins.Add(Instantiate(coin, spawnPosition, spawnRotation));
 
             spawnPosition = new Vector3(pointInBetween.x - pointIndex * PathSize, pointInBetween.y - pointIndex * PathSize, pointInBetween.z + pointIndex * PathSize);
-            GameObject newCoin2 = Instantiate(coin, spawnPosition, spawnRotation);
-            coins.Add(newCoin2);
+            coins.Add(Instantiate(coin, spawnPosition, spawnRotation));
 
             pathCount += 2;
             pointIndex++;

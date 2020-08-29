@@ -58,8 +58,10 @@ public class Player : MonoBehaviour
     {
         if (!_isGrounded) return;
 
+        // Is charging
         _isCharging = true;
 
+        // Set to charge animation
         _animator.SetTrigger(Charge);
         gameController.currentPlatform.GetComponent<Animator>().SetTrigger(Charge);
     }
@@ -68,17 +70,24 @@ public class Player : MonoBehaviour
     {
         if (!_isCharging) return;
 
+        // No longer charging
         _isCharging = false;
+
+        // Is not grounded anymore
         _isGrounded = false;
 
+        // Set pad invisible
         pad.SetActive(false);
 
+        // Add hop force at direction
         _rigidBody.AddForce(_hopForce * _direction);
 
+        //Set to hop animation
         _animator.ResetTrigger(Charge);
         _animator.SetTrigger(Hop);
         gameController.currentPlatform.GetComponent<Animator>().SetTrigger(Hop);
 
+        // Shake camera
         cameraShake.Shake();
     }
 

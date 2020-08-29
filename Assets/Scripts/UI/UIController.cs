@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
     public Ad ad;
 
     public GameController gameController;
+    public ComboSystem combo;
 
     private void Update()
     {
