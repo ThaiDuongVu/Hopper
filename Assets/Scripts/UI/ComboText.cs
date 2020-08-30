@@ -34,6 +34,9 @@ public class ComboText : MonoBehaviour
     // Set a random rotation
     private void Rotate()
     {
-        text.transform.rotation = new Quaternion(text.transform.rotation.x, text.transform.rotation.y, Random.Range(-0.25f, 0.25f), text.transform.rotation.w);
+        Quaternion textRotation = text.transform.rotation;
+        textRotation = new Quaternion(textRotation.x, textRotation.y, Random.Range(-0.25f, 0.25f), textRotation.w);
+
+        text.transform.rotation = textRotation;
     }
 }

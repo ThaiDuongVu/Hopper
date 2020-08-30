@@ -83,14 +83,5 @@ public class Ad : MonoBehaviour, IUnityAdsListener
         Advertisement.RemoveListener(this);
     }
 
-    // Show reward ad
-    public void ShowAd()
-    {
-        if (!adReady || gameController.adWatched) return;
-
-        Advertisement.Show(VideoRewardID);
-        gameController.adWatched = true;
-    }
-
     #endregion
 }

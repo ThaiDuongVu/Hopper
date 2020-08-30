@@ -15,6 +15,8 @@ public class Store : MonoBehaviour
     private int[] _requiredHighScores;
     public TMP_Text requiredHighScoreText;
 
+    private static readonly int Morph = Animator.StringToHash("morph");
+
     private void Awake()
     {
         _playerAnimator = player.GetComponent<Animator>();
@@ -48,7 +50,7 @@ public class Store : MonoBehaviour
     // Toggle player model left or right based on input button
     public void TogglePlayerModel(string direction)
     {
-        _playerAnimator.SetTrigger("morph");
+        _playerAnimator.SetTrigger(Morph);
 
         if (direction.Equals("left"))
         {
@@ -75,11 +77,10 @@ public class Store : MonoBehaviour
     // Apply changes if high score requirements is met
     public void Apply()
     {
-        if (_currentHighScore >= _requiredHighScores[_playerModelIndex])
-        {
-            PlayerPrefs.SetInt("PlayerModel", _playerModelIndex);
-            player.ApplyModels(PlayerPrefs.GetInt("PlayerModel", 0));
-        }
+        if (_currentHighScore < _requiredHighScores[_playerModelIndex]) return;
+
+        PlayerPrefs.SetInt("PlayerModel", _playerModelIndex);
+        player.ApplyModels(PlayerPrefs.GetInt("PlayerModel", 0));
     }
 
     // Update display text based on current selected model

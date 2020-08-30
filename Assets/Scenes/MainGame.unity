@@ -490,6 +490,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1168071162}
+    - target: {fileID: 7755544758492131810, guid: 99e2e852462c3f54cbbee35170a17ebb,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1893583346}
+    - target: {fileID: 7755544758492131810, guid: 99e2e852462c3f54cbbee35170a17ebb,
+        type: 3}
+      propertyPath: perfectPath
+      value: 
+      objectReference: {fileID: 1212935372}
     - target: {fileID: 7974293132351053782, guid: 99e2e852462c3f54cbbee35170a17ebb,
         type: 3}
       propertyPath: comboText

@@ -16,7 +16,10 @@ public class Player : MonoBehaviour
     private bool _isCharging;
     private bool _isGrounded;
 
-    private readonly Vector3 _direction = new Vector3(-0.7f, 1f, 0.7f);
+    public Vector3 direction { get; set; }
+    public readonly Vector3 Left = new Vector3(-0.7f, 1f, 0.7f);
+    public readonly Vector3 Right = new Vector3(0.7f, 1f, 0.7f);
+
     public GameObject pad;
 
     public GameController gameController;
@@ -80,7 +83,7 @@ public class Player : MonoBehaviour
         pad.SetActive(false);
 
         // Add hop force at direction
-        _rigidBody.AddForce(_hopForce * _direction);
+        _rigidBody.AddForce(_hopForce * direction);
 
         //Set to hop animation
         _animator.ResetTrigger(Charge);
@@ -147,7 +150,9 @@ public class Player : MonoBehaviour
     // Reset player to default state
     public void Reset()
     {
-        transform.position = new Vector3(gameController.nextPlatform.transform.position.x, -10f, gameController.nextPlatform.transform.position.z);
+        Vector3 nextPlatformPosition = gameController.nextPlatform.transform.position;
+
+        transform.position = new Vector3(nextPlatformPosition.x, -10f, nextPlatformPosition.z);
         gameObject.SetActive(true);
 
         gameController.Reset();
@@ -155,7 +160,8 @@ public class Player : MonoBehaviour
 
     public void Celebrate()
     {
-        Instantiate(fireworks, new Vector3(transform.position.x, -10f, transform.position.z), fireworks.transform.rotation);
+        Vector3 position = transform.position;
+        Instantiate(fireworks, new Vector3(position.x, -10f, position.z), fireworks.transform.rotation);
     }
 
     #region Collision Methods

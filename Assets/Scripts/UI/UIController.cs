@@ -13,10 +13,8 @@ public class UIController : MonoBehaviour
     public TMP_Text newHighScoreText;
 
     public Button adButton;
-    public Ad ad;
 
     public GameController gameController;
-    public ComboSystem combo;    
 
     private void Start()
     {
@@ -53,8 +51,8 @@ public class UIController : MonoBehaviour
         highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0);
     }
 
-    // Display or undisplay the video ad button 
-    public void DisplayAdButton()
+    // Display or hide the video ad button 
+    private void DisplayAdButton()
     {
         if (Ad.adReady && !gameController.adWatched)
         {

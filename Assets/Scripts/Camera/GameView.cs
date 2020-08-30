@@ -6,7 +6,7 @@ public class GameView : MonoBehaviour
     private const float TargetAspect = 9f / 18f;
 
     // The game window's current aspect ratio
-    private float _windowAspect = (float)Screen.width / (float)Screen.height;
+    private readonly float _windowAspect = Screen.width / (float)Screen.height;
 
     // Current viewport width and height should be scaled by this amount
     private float _scaleHeight;

@@ -3,24 +3,28 @@ using System.Collections.Generic;
 
 public class PerfectPath : MonoBehaviour
 {
-    public GameObject coin;
-    private List<GameObject> coins = new List<GameObject>();
+    public GameObject coinPrefab;
+    private readonly List<GameObject> _coins = new List<GameObject>();
 
     private const float PathSize = 1f; // Distance between 2 cubes
     public int pathCount { get; set; } // Number of cubes that represent the path
 
+    public int spawnDirection { get; set; }
+
     public void CalculateNextPath(Platform nextPlatform, Player player)
     {
         // Destroy old coins
-        foreach (GameObject coin in coins)
+        foreach (GameObject coin in _coins)
         {
             Destroy(coin);
         }
         pathCount = 0;
 
         // Calculate the point in between 2 platforms
-        Vector3 sumPosition = nextPlatform.transform.position + player.transform.position;
-        Vector3 pointInBetween = new Vector3(sumPosition.x / 2f, player.transform.position.y + 5f, sumPosition.z / 2f);
+        Vector3 playerPosition = player.transform.position;
+
+        Vector3 sumPosition = nextPlatform.transform.position + playerPosition;
+        Vector3 pointInBetween = new Vector3(sumPosition.x / 2f, playerPosition.y + 5f, sumPosition.z / 2f);
 
         SpawnCoins(pointInBetween, player);
     }
@@ -33,13 +37,36 @@ public class PerfectPath : MonoBehaviour
         while (pointInBetween.y - pointIndex * PathSize > player.transform.position.y)
         {
             Vector3 spawnPosition;
-            Quaternion spawnRotation = coin.transform.rotation;
+            Quaternion spawnRotation = coinPrefab.transform.rotation;
 
-            spawnPosition = new Vector3(pointInBetween.x + pointIndex * PathSize, pointInBetween.y - pointIndex * PathSize, pointInBetween.z - pointIndex * PathSize);
-            coins.Add(Instantiate(coin, spawnPosition, spawnRotation));
+            if (spawnDirection == 0)
+            {
+                spawnPosition = new Vector3(pointInBetween.x + pointIndex * PathSize,
+                    pointInBetween.y - pointIndex * PathSize,
+                    pointInBetween.z - pointIndex * PathSize);
 
-            spawnPosition = new Vector3(pointInBetween.x - pointIndex * PathSize, pointInBetween.y - pointIndex * PathSize, pointInBetween.z + pointIndex * PathSize);
-            coins.Add(Instantiate(coin, spawnPosition, spawnRotation));
+                _coins.Add(Instantiate(coinPrefab, spawnPosition, spawnRotation));
+
+                spawnPosition = new Vector3(pointInBetween.x - pointIndex * PathSize,
+                    pointInBetween.y - pointIndex * PathSize,
+                    pointInBetween.z + pointIndex * PathSize);
+
+                _coins.Add(Instantiate(coinPrefab, spawnPosition, spawnRotation));
+            }
+            else
+            {
+                spawnPosition = new Vector3(pointInBetween.x - pointIndex * PathSize,
+                    pointInBetween.y - pointIndex * PathSize,
+                    pointInBetween.z - pointIndex * PathSize);
+
+                _coins.Add(Instantiate(coinPrefab, spawnPosition, spawnRotation));
+
+                spawnPosition = new Vector3(pointInBetween.x + pointIndex * PathSize,
+                    pointInBetween.y - pointIndex * PathSize,
+                    pointInBetween.z + pointIndex * PathSize);
+
+                _coins.Add(Instantiate(coinPrefab, spawnPosition, spawnRotation));
+            }
 
             pathCount += 2;
             pointIndex++;

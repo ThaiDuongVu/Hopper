@@ -10,6 +10,10 @@ public class GameController : MonoBehaviour
     public GameObject platform;
     public Platform nextPlatform;
     public Platform currentPlatform;
+    private int _spawnDirection = 1; // 0: Left; 1: Right
+
+    public MainCamera mainCamera;
+    public PerfectPath perfectPath;
 
     private UIController _uiController;
 
@@ -79,13 +83,36 @@ public class GameController : MonoBehaviour
     // Spawn a new platform from the current active platform
     public void SpawnPlatform()
     {
+        if (_spawnDirection == 0)
+        {
+            _spawnDirection = 1;
+        }
+        else
+        {
+            _spawnDirection = 0;
+        }
+
         Vector3 platformPosition = nextPlatform.transform.position;
 
-        Vector3 spawnPosition = new Vector3(platformPosition.x - 10f, platformPosition.y, platformPosition.z + 10f);
+        Vector3 spawnPosition;
         Quaternion spawnRotation = platform.transform.rotation;
+
+        if (_spawnDirection == 0)
+        {
+            spawnPosition = new Vector3(platformPosition.x - 10f, platformPosition.y, platformPosition.z + 10f);
+            player.direction = player.Left;
+        }
+        else
+        {
+            spawnPosition = new Vector3(platformPosition.x + 10f, platformPosition.y, platformPosition.z + 10f);
+            player.direction = player.Right;
+        }
 
         currentPlatform = nextPlatform;
         nextPlatform = Instantiate(platform, spawnPosition, spawnRotation).GetComponent<Platform>();
+
+        mainCamera.currentDirection = _spawnDirection;
+        perfectPath.spawnDirection = this._spawnDirection;
     }
 
     // Add a value to score
