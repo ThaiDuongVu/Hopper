@@ -5,7 +5,9 @@ using TMPro;
 public class UIController : MonoBehaviour
 {
     public TMP_Text instructionText;
+
     public Slider forceSlider;
+    private Animator sliderAnimator;
 
     public TMP_Text scoreText;
     public TMP_Text highScoreText;
@@ -16,14 +18,14 @@ public class UIController : MonoBehaviour
 
     public GameController gameController;
 
+    private void Awake()
+    {
+        sliderAnimator = forceSlider.GetComponent<Animator>();
+    }
+
     private void Start()
     {
         DisplayNewHighScore(false);
-    }
-
-    private void Update()
-    {
-        DisplayAdButton();
     }
 
     // Display an instruction message
@@ -51,22 +53,15 @@ public class UIController : MonoBehaviour
         highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0);
     }
 
-    // Display or hide the video ad button 
-    private void DisplayAdButton()
-    {
-        if (Ad.adReady && !gameController.adWatched)
-        {
-            adButton.interactable = true;
-        }
-        else
-        {
-            adButton.interactable = false;
-        }
-    }
-
     // Set whether to display the new high score text or not
     public void DisplayNewHighScore(bool value)
     {
         newHighScoreText.gameObject.SetActive(value);
+    }
+    
+    // Animator whether slider is sliding or not
+    public void AnimateSlider(bool value)
+    {
+        sliderAnimator.SetBool("isSliding", value);
     }
 }

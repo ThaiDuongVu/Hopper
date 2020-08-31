@@ -62,6 +62,9 @@ public class Player : MonoBehaviour
         // Is charging
         _isCharging = true;
 
+        // Animate the force slider
+        uiController.AnimateSlider(true);
+
         // Set to charge animation
         _animator.SetTrigger(Charge);
         gameController.currentPlatform.GetComponent<Animator>().SetTrigger(Charge);
@@ -82,6 +85,9 @@ public class Player : MonoBehaviour
 
         // Add hop force at direction
         _rigidBody.AddForce(_hopForce * direction);
+
+        // Animate the force slider
+        uiController.AnimateSlider(false);
 
         //Set to hop animation
         _animator.ResetTrigger(Charge);

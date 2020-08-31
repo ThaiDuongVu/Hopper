@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 5465032606163086796, guid: 816af7b33bf10c543823c7f302bfa8cc,
     type: 3}
+  coins: {fileID: 0}

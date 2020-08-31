@@ -21,16 +21,19 @@ public class Ad : MonoBehaviour, IUnityAdsListener
 
     private void Update()
     {
-        ShowBannerWhenReady();
+        ShowBanner();
     }
 
     #region Banner Ad
 
-    private void ShowBannerWhenReady()
+    // Show banner ad when ready
+    private void ShowBanner()
     {
         if (!adReady || _bannerShown) return;
 
         Advertisement.Banner.Show(BannerID);
+
+        // Set banner position to be top center
         Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
 
         _bannerShown = true;

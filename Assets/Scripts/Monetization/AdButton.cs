@@ -17,14 +17,20 @@ public class AdButton : MonoBehaviour, IUnityAdsListener
 
     private void Start()
     {
-        // Set interactivity to be dependent on the Placement’s status:
-        _button.interactable = Advertisement.IsReady(Ad.VideoRewardID);
-
         // Map the ShowRewardedVideo function to the button’s click listener:
-        if (_button) _button.onClick.AddListener(ShowRewardedVideo);
+        if (_button) 
+        {
+            _button.onClick.AddListener(ShowRewardedVideo);
+        }
 
         Advertisement.AddListener(this);
         Advertisement.Initialize(Ad.GameID);
+    }
+
+    private void Update()
+    {
+        // Set interactivity to be dependent on the Placement’s status:
+        _button.interactable = Advertisement.IsReady(Ad.VideoRewardID);
     }
 
     // Implement a function for showing a rewarded video ad:

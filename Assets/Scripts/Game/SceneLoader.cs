@@ -16,22 +16,26 @@ public class SceneLoader : MonoBehaviour
 
     private void Update()
     {
+        // If current camera animator state is "Exit" then load a scene
         if (_cameraAnimator.GetCurrentAnimatorStateInfo(0).IsName("Exit"))
         {
             SceneManager.LoadScene(_sceneToLoad, LoadSceneMode.Single);
         }
     }
 
-    // Load a scene
+    // Set a scene to load
     public void Load(string sceneToLoad)
     {
         _sceneToLoad = sceneToLoad;
+
+        // Disable canvas while camera is animating
         canvas.gameObject.SetActive(false);
 
+        // Camera begin animation
         _cameraAnimator.SetTrigger(Outro);
     }
 
-    // Reload scene
+    // Restart scene
     public void Restart()
     {
         Load(SceneManager.GetActiveScene().name);

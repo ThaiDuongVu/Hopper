@@ -53,9 +53,6 @@ public class PerfectPath : MonoBehaviour
         // While spawn coin position is higher than player
         while (pointInBetween.y - pointIndex * PathSize > player.transform.position.y)
         {
-            // Position to spawn coins
-            Vector3 spawnPosition;
-
             // Spawn coin rotation = coin default rotation
             Quaternion spawnRotation = coinPrefab.transform.rotation;
 
@@ -63,33 +60,26 @@ public class PerfectPath : MonoBehaviour
             if (spawnDirection == 0)
             {
                 // Spawn 2 coins at either sides of the path
-                spawnPosition = new Vector3(pointInBetween.x + pointIndex * PathSize,
-                    pointInBetween.y - pointIndex * PathSize,
-                    pointInBetween.z - pointIndex * PathSize);
+                SpawnCoin(new Vector3(pointInBetween.x + pointIndex * PathSize,
+                            pointInBetween.y - pointIndex * PathSize,
+                            pointInBetween.z - pointIndex * PathSize), spawnRotation);
 
-                SpawnCoin(spawnPosition, spawnRotation);
-
-                spawnPosition = new Vector3(pointInBetween.x - pointIndex * PathSize,
-                    pointInBetween.y - pointIndex * PathSize,
-                    pointInBetween.z + pointIndex * PathSize);
-
-                SpawnCoin(spawnPosition, spawnRotation);
+                SpawnCoin(new Vector3(pointInBetween.x - pointIndex * PathSize,
+                            pointInBetween.y - pointIndex * PathSize,
+                            pointInBetween.z + pointIndex * PathSize), spawnRotation);
             }
             // Right direction
             else
             {
                 // Spawn 2 coins at either sides of the path
-                spawnPosition = new Vector3(pointInBetween.x - pointIndex * PathSize,
-                    pointInBetween.y - pointIndex * PathSize,
-                    pointInBetween.z - pointIndex * PathSize);
 
-                SpawnCoin(spawnPosition, spawnRotation);
+                SpawnCoin(new Vector3(pointInBetween.x - pointIndex * PathSize,
+                            pointInBetween.y - pointIndex * PathSize,
+                            pointInBetween.z - pointIndex * PathSize), spawnRotation);
 
-                spawnPosition = new Vector3(pointInBetween.x + pointIndex * PathSize,
-                    pointInBetween.y - pointIndex * PathSize,
-                    pointInBetween.z + pointIndex * PathSize);
-
-                SpawnCoin(spawnPosition, spawnRotation);
+                SpawnCoin(new Vector3(pointInBetween.x + pointIndex * PathSize,
+                            pointInBetween.y - pointIndex * PathSize,
+                            pointInBetween.z + pointIndex * PathSize), spawnRotation);
             }
 
             // Next iteration
@@ -97,13 +87,17 @@ public class PerfectPath : MonoBehaviour
         }
     }
 
+    // Spawn a new coin object at position and rotation
     private void SpawnCoin(Vector3 spawnPosition, Quaternion spawnRotation)
     {
+        // Institate coin
         GameObject newCoin = Instantiate(coinPrefab, spawnPosition, spawnRotation);
 
+        // Set new coin parent to coins
         newCoin.transform.parent = coins;
-        _coins.Add(newCoin);
 
+        // Add new coin to coins list and update path count
+        _coins.Add(newCoin);
         pathCount++;
     }
 }

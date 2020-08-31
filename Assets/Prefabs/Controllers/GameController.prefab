@@ -49,6 +49,8 @@ MonoBehaviour:
     type: 3}
   nextPlatform: {fileID: 0}
   currentPlatform: {fileID: 0}
+  mainCamera: {fileID: 0}
+  perfectPath: {fileID: 0}
   scoreTextAnimator: {fileID: 0}
   gameOverMenu: {fileID: 0}
   player: {fileID: 0}
@@ -83,6 +85,4 @@ MonoBehaviour:
   highScoreText: {fileID: 0}
   newHighScoreText: {fileID: 0}
   adButton: {fileID: 0}
-  ad: {fileID: 0}
   gameController: {fileID: 7755544758492131810}
-  combo: {fileID: 7974293132351053782}

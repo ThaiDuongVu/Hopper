@@ -31,6 +31,7 @@ public class Store : MonoBehaviour
         currentHighScoreText.text = "Current high score: " + _currentHighScore;
 
         _requiredHighScores = new int[player.models.Count];
+
         // Required high score increase by 500 with every model
         for (int i = 0; i < player.models.Count; i++)
         {
@@ -57,9 +58,6 @@ public class Store : MonoBehaviour
             if (_playerModelIndex > 0)
             {
                 _playerModelIndex--;
-
-                UpdateText();
-                player.ApplyModels(_playerModelIndex);
             }
         }
         else
@@ -67,11 +65,11 @@ public class Store : MonoBehaviour
             if (_playerModelIndex < player.models.Count - 1)
             {
                 _playerModelIndex++;
-
-                UpdateText();
-                player.ApplyModels(_playerModelIndex);
             }
         }
+
+        UpdateText();
+        player.ApplyModels(_playerModelIndex);
     }
 
     // Apply changes if high score requirements is met

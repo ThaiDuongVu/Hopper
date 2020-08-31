@@ -26,6 +26,7 @@ public class MainCamera : MonoBehaviour
         Vector3 lerpPosition = currentDirection == 0 ? new Vector3(targetPosition.x - 5f, position.y, targetPosition.z - 50f) : new Vector3(targetPosition.x + 5f, position.y, targetPosition.z - 50f);
         transform.position = Vector3.Lerp(position, lerpPosition, InterpolationRatio);
 
+        // If current position is close to lerp position then stop following
         if (Mathf.Abs(transform.position.x - lerpPosition.x) < 0.1f && Mathf.Abs(transform.position.z - lerpPosition.z) < 0.1f)
         {
             isFollowing = false;
