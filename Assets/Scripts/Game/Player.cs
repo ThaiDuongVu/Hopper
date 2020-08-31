@@ -132,8 +132,7 @@ public class Player : MonoBehaviour
             if (_hopForce > MinHopForce) _hopForce -= _forceDelta * Time.deltaTime;
         }
 
-        Vector3 position = transform.position;
-        if (position.y < -40f) Die();
+        if (transform.position.y < -40f) Die();
     }
 
     // Die 🤷‍♂️
@@ -150,9 +149,13 @@ public class Player : MonoBehaviour
     {
         Vector3 nextPlatformPosition = gameController.nextPlatform.transform.position;
 
+        // Reset position
         transform.position = new Vector3(nextPlatformPosition.x, -10f, nextPlatformPosition.z);
+
+        // Set active to true
         gameObject.SetActive(true);
 
+        // Reset game state
         gameController.Reset();
     }
 
@@ -164,9 +167,18 @@ public class Player : MonoBehaviour
     }
 
     // Rotate to moving direction
-    private void Rotate()
+    public void Rotate(int movingDirection)// 0: Left, 1: Right
     {
-        transform.right = new Vector3(-direction.x, 0f, -direction.z);
+        Transform playerTransform = transform;
+
+        Quaternion rotation = playerTransform.rotation;
+        Vector3 rotationEuler = rotation.eulerAngles;
+        
+        // Set y rotation according to moving direction
+        rotationEuler.y = movingDirection == 0 ? 45f : 135f;
+
+        rotation.eulerAngles = rotationEuler;
+        playerTransform.rotation = rotation;
     }
 
     #region Collision Methods
@@ -177,9 +189,6 @@ public class Player : MonoBehaviour
 
         // Spawn new platform
         gameController.SpawnPlatform();
-
-        // Rotate player to moving direction
-        Rotate();
 
         // Trigger landing animations
         _animator.SetTrigger(Land);

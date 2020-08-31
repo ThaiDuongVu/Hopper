@@ -20,9 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5799f197-c34b-4c60-99d6-923eb27eec86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monetization/Ad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monetization/Ad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/PerfectPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/PerfectPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,16 +51,16 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Monetization/AdButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Camera/GameView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Camera/MainCamera.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/ComboSystem.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Platform.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/SceneLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Store/Store.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/ComboText.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Monetization/Ad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/PerfectPath.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Player.cs" />
       </list>
     </option>
   </component>
@@ -114,6 +116,7 @@
       <workItem from="1598554963567" duration="2075000" />
       <workItem from="1598820866731" duration="3057000" />
       <workItem from="1598824361154" duration="25000" />
+      <workItem from="1598885947690" duration="2181000" />
     </task>
     <servers />
   </component>

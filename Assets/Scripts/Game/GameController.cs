@@ -87,11 +87,12 @@ public class GameController : MonoBehaviour
         _spawnDirection = _spawnDirection == 0 ? 1 : 0;
 
         Vector3 platformPosition = nextPlatform.transform.position;
-        Vector3 spawnPosition;
         Quaternion spawnRotation = platform.transform.rotation;
 
         // Position to spawn new platform
-        spawnPosition = _spawnDirection == 0 ? new Vector3(platformPosition.x - 10f, platformPosition.y, platformPosition.z + 10f) : new Vector3(platformPosition.x + 10f, platformPosition.y, platformPosition.z + 10f);
+        Vector3 spawnPosition = _spawnDirection == 0
+            ? new Vector3(platformPosition.x - 10f, platformPosition.y, platformPosition.z + 10f)
+            : new Vector3(platformPosition.x + 10f, platformPosition.y, platformPosition.z + 10f);
 
         // Set player flying direction
         player.direction = (spawnPosition - player.transform.position).normalized;
@@ -105,7 +106,10 @@ public class GameController : MonoBehaviour
         mainCamera.currentDirection = _spawnDirection;
 
         // Set perfect path direction
-        perfectPath.spawnDirection = this._spawnDirection;
+        perfectPath.spawnDirection = _spawnDirection;
+        
+        // Rotate player to moving direction
+        player.Rotate(_spawnDirection);
     }
 
     // Add a value to score
