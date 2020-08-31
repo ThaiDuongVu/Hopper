@@ -82,36 +82,29 @@ public class GameController : MonoBehaviour
 
     // Spawn a new platform from the current active platform
     public void SpawnPlatform()
-    {
-        if (_spawnDirection == 0)
-        {
-            _spawnDirection = 1;
-        }
-        else
-        {
-            _spawnDirection = 0;
-        }
+    {   
+        // Decide whether to spawn left or right
+        _spawnDirection = _spawnDirection == 0 ? 1 : 0;
 
         Vector3 platformPosition = nextPlatform.transform.position;
-
         Vector3 spawnPosition;
         Quaternion spawnRotation = platform.transform.rotation;
 
-        if (_spawnDirection == 0)
-        {
-            spawnPosition = new Vector3(platformPosition.x - 10f, platformPosition.y, platformPosition.z + 10f);
-            player.direction = player.Left;
-        }
-        else
-        {
-            spawnPosition = new Vector3(platformPosition.x + 10f, platformPosition.y, platformPosition.z + 10f);
-            player.direction = player.Right;
-        }
+        // Position to spawn new platform
+        spawnPosition = _spawnDirection == 0 ? new Vector3(platformPosition.x - 10f, platformPosition.y, platformPosition.z + 10f) : new Vector3(platformPosition.x + 10f, platformPosition.y, platformPosition.z + 10f);
 
+        // Set player flying direction
+        player.direction = (spawnPosition - player.transform.position).normalized;
+        player.direction.y = 1f;
+
+        // Spawn platform
         currentPlatform = nextPlatform;
         nextPlatform = Instantiate(platform, spawnPosition, spawnRotation).GetComponent<Platform>();
 
+        // Set camera direction
         mainCamera.currentDirection = _spawnDirection;
+
+        // Set perfect path direction
         perfectPath.spawnDirection = this._spawnDirection;
     }
 
@@ -149,7 +142,8 @@ public class GameController : MonoBehaviour
         gameOverMenu.SetActive(true);
         gameState = GameState.GameOver;
     }
-
+    
+    // If ad watched, then reset game
     public void Reset()
     {
         gameOverMenu.SetActive(false);

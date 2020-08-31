@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using System.Collections;
 using UnityEngine.Advertisements;
 
 public class Ad : MonoBehaviour, IUnityAdsListener
@@ -11,27 +10,30 @@ public class Ad : MonoBehaviour, IUnityAdsListener
     public const string VideoRewardID = "rewardedVideo";
 
     public static bool adReady => Advertisement.IsReady(VideoRewardID);
-    public GameController gameController;
+
+    private bool _bannerShown;
 
     private void Start()
     {
         Advertisement.AddListener(this);
         Advertisement.Initialize(GameID);
+    }
 
-        StartCoroutine(ShowBannerWhenReady());
+    private void Update()
+    {
+        ShowBannerWhenReady();
     }
 
     #region Banner Ad
 
-    private static IEnumerator ShowBannerWhenReady()
+    private void ShowBannerWhenReady()
     {
-        while (!Advertisement.IsReady(BannerID))
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
+        if (!adReady || _bannerShown) return;
 
         Advertisement.Banner.Show(BannerID);
         Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
+
+        _bannerShown = true;
     }
 
     #endregion

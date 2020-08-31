@@ -16,9 +16,7 @@ public class Player : MonoBehaviour
     private bool _isCharging;
     private bool _isGrounded;
 
-    public Vector3 direction { get; set; }
-    public readonly Vector3 Left = new Vector3(-0.7f, 1f, 0.7f);
-    public readonly Vector3 Right = new Vector3(0.7f, 1f, 0.7f);
+    public Vector3 direction;
 
     public GameObject pad;
 
@@ -158,10 +156,17 @@ public class Player : MonoBehaviour
         gameController.Reset();
     }
 
+    // Create a fireworks particle effects
     public void Celebrate()
     {
         Vector3 position = transform.position;
         Instantiate(fireworks, new Vector3(position.x, -10f, position.z), fireworks.transform.rotation);
+    }
+
+    // Rotate to moving direction
+    private void Rotate()
+    {
+        transform.right = new Vector3(-direction.x, 0f, -direction.z);
     }
 
     #region Collision Methods
@@ -172,6 +177,9 @@ public class Player : MonoBehaviour
 
         // Spawn new platform
         gameController.SpawnPlatform();
+
+        // Rotate player to moving direction
+        Rotate();
 
         // Trigger landing animations
         _animator.SetTrigger(Land);

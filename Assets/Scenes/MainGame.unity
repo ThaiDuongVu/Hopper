@@ -986,6 +986,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62710640, guid: 0ef92b7bf8d2fc04eaa74de4eaa8c0f7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2048225393, guid: 0ef92b7bf8d2fc04eaa74de4eaa8c0f7, type: 3}
       propertyPath: gameController
       value: 
@@ -1010,6 +1014,11 @@ PrefabInstance:
       propertyPath: perfectPath
       value: 
       objectReference: {fileID: 1212935372}
+    - target: {fileID: 393394878407135196, guid: 0ef92b7bf8d2fc04eaa74de4eaa8c0f7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3015729742398792356, guid: 0ef92b7bf8d2fc04eaa74de4eaa8c0f7,
         type: 3}
       propertyPath: m_Name
@@ -1575,6 +1584,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665112428042733006, guid: 371bd684d26f0e44aba8267b7797392e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665112428042733006, guid: 371bd684d26f0e44aba8267b7797392e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 7665112428446832714, guid: 371bd684d26f0e44aba8267b7797392e,
         type: 3}
