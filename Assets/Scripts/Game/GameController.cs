@@ -82,7 +82,7 @@ public class GameController : MonoBehaviour
 
     // Spawn a new platform from the current active platform
     public void SpawnPlatform()
-    {   
+    {
         // Decide whether to spawn left or right
         _spawnDirection = _spawnDirection == 0 ? 1 : 0;
 
@@ -107,7 +107,7 @@ public class GameController : MonoBehaviour
 
         // Set perfect path direction
         perfectPath.spawnDirection = _spawnDirection;
-        
+
         // Rotate player to moving direction
         player.Rotate(_spawnDirection);
     }
@@ -146,7 +146,7 @@ public class GameController : MonoBehaviour
         gameOverMenu.SetActive(true);
         gameState = GameState.GameOver;
     }
-    
+
     // If ad watched, then reset game
     public void Reset()
     {

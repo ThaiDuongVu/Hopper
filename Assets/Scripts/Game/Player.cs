@@ -145,13 +145,13 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (_hopForce > MinHopForce) 
+            if (_hopForce > MinHopForce)
             {
                 _hopForce -= _forceDelta * Time.deltaTime;
             }
         }
 
-        if (transform.position.y < -40f) 
+        if (transform.position.y < -40f)
         {
             Die();
         }
@@ -184,6 +184,8 @@ public class Player : MonoBehaviour
         // Set active to true
         gameObject.SetActive(true);
 
+        Celebrate();
+
         // Reset game state
         gameController.Reset();
     }
@@ -206,7 +208,7 @@ public class Player : MonoBehaviour
 
         Quaternion rotation = playerTransform.rotation;
         Vector3 rotationEuler = rotation.eulerAngles;
-        
+
         // Set y rotation according to moving direction
         rotationEuler.y = movingDirection == 0 ? 45f : 135f;
 
@@ -275,7 +277,7 @@ public class Player : MonoBehaviour
         cameraShake.ShakeLight();
 
         // If a perfect path then celebrate
-        if (perfectPath.pathCount <= 0) 
+        if (perfectPath.pathCount <= 0)
         {
             Celebrate();
         }

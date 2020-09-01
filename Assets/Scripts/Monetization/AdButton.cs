@@ -10,6 +10,8 @@ public class AdButton : MonoBehaviour, IUnityAdsListener
     public GameController gameController;
     public Player player;
 
+    private bool _playerRewarded;
+
     private void Awake()
     {
         _button = GetComponent<Button>();
@@ -18,7 +20,7 @@ public class AdButton : MonoBehaviour, IUnityAdsListener
     private void Start()
     {
         // Map the ShowRewardedVideo function to the button’s click listener:
-        if (_button) 
+        if (_button)
         {
             _button.onClick.AddListener(ShowRewardedVideo);
         }
@@ -30,7 +32,7 @@ public class AdButton : MonoBehaviour, IUnityAdsListener
     private void Update()
     {
         // Set interactivity to be dependent on the Placement’s status:
-        _button.interactable = Advertisement.IsReady(Ad.VideoRewardID);
+        _button.interactable = Advertisement.IsReady(Ad.VideoRewardID) && !gameController.adWatched;
     }
 
     // Implement a function for showing a rewarded video ad:
@@ -42,11 +44,7 @@ public class AdButton : MonoBehaviour, IUnityAdsListener
     // Implement IUnityAdsListener interface methods:
     public void OnUnityAdsReady(string placementId)
     {
-        // If the ready Placement is rewarded, activate the button: 
-        if (placementId == Ad.VideoRewardID)
-        {
-            _button.interactable = true;
-        }
+        // If the ready Placement is rewarded, activate the button
     }
 
     public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
@@ -55,17 +53,21 @@ public class AdButton : MonoBehaviour, IUnityAdsListener
         {
             // Define conditional logic for each ad completion status:
             case ShowResult.Finished:
-                RewardPlayer();
                 // Reward the user for watching the ad to completion.
+                if (!_playerRewarded)
+                {
+                    RewardPlayer();
+                }
+
                 break;
             case ShowResult.Skipped:
                 // Do not reward the user for skipping the ad.
+
                 break;
             case ShowResult.Failed:
                 // Log the error
+
                 break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(showResult), showResult, null);
         }
     }
 
@@ -84,5 +86,7 @@ public class AdButton : MonoBehaviour, IUnityAdsListener
     {
         player.Reset();
         gameController.adWatched = true;
+
+        _playerRewarded = true;
     }
 }
