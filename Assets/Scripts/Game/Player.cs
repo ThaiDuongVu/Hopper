@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public GameController gameController;
     public UIController uiController;
 
+    public AudioPlayer audioPlayer;
+
     public MainCamera mainCamera;
     public CameraShake cameraShake;
 
@@ -59,6 +61,9 @@ public class Player : MonoBehaviour
     {
         if (!_isGrounded) return;
 
+        // Play charge sound
+        audioPlayer.Play("Charge");
+
         // Is charging
         _isCharging = true;
 
@@ -73,6 +78,11 @@ public class Player : MonoBehaviour
     private void ChargeOnCanceled(InputAction.CallbackContext context)
     {
         if (!_isCharging) return;
+
+        // Stop charge sound
+        audioPlayer.Stop("Charge");
+        // Play hop sound
+        audioPlayer.Play("Hop");
 
         // No longer charging
         _isCharging = false;
@@ -135,19 +145,32 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (_hopForce > MinHopForce) _hopForce -= _forceDelta * Time.deltaTime;
+            if (_hopForce > MinHopForce) 
+            {
+                _hopForce -= _forceDelta * Time.deltaTime;
+            }
         }
 
-        if (transform.position.y < -40f) Die();
+        if (transform.position.y < -40f) 
+        {
+            Die();
+        }
     }
 
     // Die 🤷‍♂️
     private void Die()
     {
+        // Set game over
         gameController.GameOver();
+
+        // Shake camera
         cameraShake.Shake();
 
+        // Set object inactive
         gameObject.SetActive(false);
+
+        // Play die sound
+        audioPlayer.Play("Die");
     }
 
     // Reset player to default state
@@ -168,8 +191,12 @@ public class Player : MonoBehaviour
     // Create a fireworks particle effects
     public void Celebrate()
     {
+        // Spawn a fireworks
         Vector3 position = transform.position;
         Instantiate(fireworks, new Vector3(position.x, -10f, position.z), fireworks.transform.rotation);
+
+        // Play celebrate sound
+        audioPlayer.Play("Celebrate");
     }
 
     // Rotate to moving direction
@@ -192,6 +219,9 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (!other.transform.CompareTag("Platform")) return;
+
+        // Play land sound
+        audioPlayer.Play("Land");
 
         // Spawn new platform
         gameController.SpawnPlatform();
@@ -234,14 +264,24 @@ public class Player : MonoBehaviour
     {
         if (!other.CompareTag("Coin")) return;
 
+        // Decrease path count
         perfectPath.pathCount--;
+
+        // Add score
         gameController.AddScore(1);
 
+        // Spawn a small explosion and shake the camera
         Instantiate(smallExplosion, other.transform.position, smallExplosion.transform.rotation);
         cameraShake.ShakeLight();
 
-        if (perfectPath.pathCount <= 0) Celebrate();
+        // If a perfect path then celebrate
+        if (perfectPath.pathCount <= 0) 
+        {
+            Celebrate();
+        }
 
+        // Set coin inactive
+        // Not destroy the object because it will be destroyed later
         other.gameObject.SetActive(false);
     }
 
@@ -250,11 +290,13 @@ public class Player : MonoBehaviour
     // Set player's character model based on selection
     public void ApplyModels(int modelIndex)
     {
+        // Deactivate all models
         foreach (GameObject model in models)
         {
             model.SetActive(false);
         }
 
+        // Activate active model
         models[modelIndex].SetActive(true);
     }
 }
