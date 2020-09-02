@@ -9,8 +9,6 @@ public class SceneLoader : MonoBehaviour
     public Canvas canvas;
     private static readonly int Outro = Animator.StringToHash("outro");
 
-    public AudioPlayer audioPlayer;
-
     private void Awake()
     {
         if (!(Camera.main is null)) _cameraAnimator = Camera.main.transform.parent.GetComponent<Animator>();
@@ -28,9 +26,6 @@ public class SceneLoader : MonoBehaviour
     // Set a scene to load
     public void Load(string sceneToLoad)
     {
-        // Play a click audio
-        audioPlayer.Play("UI");
-
         // Set scene to load
         _sceneToLoad = sceneToLoad;
 

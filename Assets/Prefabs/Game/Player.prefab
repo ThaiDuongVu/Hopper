@@ -1700,7 +1700,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1596921936}
   m_Layer: 0
-  m_Name: Pile of sh*t
+  m_Name: Pile of Sh*t
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2173,6 +2173,7 @@ MonoBehaviour:
   pad: {fileID: 123106663}
   gameController: {fileID: 0}
   uiController: {fileID: 0}
+  audioPlayer: {fileID: 0}
   mainCamera: {fileID: 0}
   cameraShake: {fileID: 0}
   explosion: {fileID: 2248870971675203982, guid: a72e524d12b8eeb439ef83123b2820f4,
@@ -2186,6 +2187,9 @@ MonoBehaviour:
   - Awesome!
   - Gud!
   - Bruh!
+  - Unreal!
+  - Terrific!
+  - Super!
   perfectPath: {fileID: 0}
   smallExplosion: {fileID: 2782182013699607648, guid: 50c1b413c0b02194e84e62b27f003845,
     type: 3}

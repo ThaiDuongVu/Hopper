@@ -224,6 +224,8 @@ public class Player : MonoBehaviour
 
         // Play land sound
         audioPlayer.Play("Land");
+        // Reset audio pitch
+        audioPlayer.ResetPitch();
 
         // Spawn new platform
         gameController.SpawnPlatform();
@@ -271,6 +273,9 @@ public class Player : MonoBehaviour
 
         // Add score
         gameController.AddScore(1);
+
+        // Play a sound
+        audioPlayer.Play("Coin");
 
         // Spawn a small explosion and shake the camera
         Instantiate(smallExplosion, other.transform.position, smallExplosion.transform.rotation);

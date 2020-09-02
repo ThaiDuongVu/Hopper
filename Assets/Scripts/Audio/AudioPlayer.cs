@@ -4,6 +4,18 @@ public class AudioPlayer : MonoBehaviour
 {
     public AudioSource[] audioSources;
 
+    private float[] defaultPitches;
+
+    private void Start()
+    {
+        defaultPitches = new float[audioSources.Length];
+
+        for (int i = 0; i < defaultPitches.Length; i++)
+        {
+            defaultPitches[i] = audioSources[i].pitch;
+        }
+    }
+
     // Play a sound
     public void Play(string sourceName)
     {
@@ -12,6 +24,7 @@ public class AudioPlayer : MonoBehaviour
             if (audioSource.name.Equals(sourceName))
             {
                 audioSource.Play();
+                audioSource.pitch += 0.1f;
                 break;
             }
         }
@@ -27,6 +40,15 @@ public class AudioPlayer : MonoBehaviour
                 audioSource.Stop();
                 break;
             }
+        }
+    }
+
+    // Reset audio pitches
+    public void ResetPitch()
+    {
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            audioSources[i].pitch = defaultPitches[i];
         }
     }
 }

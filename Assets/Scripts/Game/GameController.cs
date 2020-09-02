@@ -32,6 +32,8 @@ public class GameController : MonoBehaviour
 
     public bool adWatched { get; set; }
 
+    public AudioPlayer audioPlayer;
+
     private void OnEnable()
     {
         _inputManager = new InputManager();
@@ -66,6 +68,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        // Display the instruction on startup
         _uiController.DisplayInstruction(true, "Tap and hold to start hopping");
 
         _uiController.UpdateHighScore();
@@ -115,9 +118,12 @@ public class GameController : MonoBehaviour
     // Add a value to score
     public void AddScore(int value)
     {
+        // Add score with combo
         _score += value * _comboSystem.comboMultiplier;
+        // Add combo
         _comboSystem.AddCombo();
 
+        // Pop the score text
         scoreTextAnimator.SetTrigger(Score);
     }
 
@@ -126,11 +132,14 @@ public class GameController : MonoBehaviour
     {
         if (_score <= _highScore) return;
 
+        // Set new high score
         _highScore = _score;
         PlayerPrefs.SetInt("HighScore", _highScore);
 
+        // Update high score display
         _uiController.UpdateHighScore();
 
+        // Celebrate new high score
         if (!_newHighScore)
         {
             _newHighScore = true;
@@ -145,6 +154,8 @@ public class GameController : MonoBehaviour
     {
         gameOverMenu.SetActive(true);
         gameState = GameState.GameOver;
+
+        audioPlayer.Play("GameOver");
     }
 
     // If ad watched, then reset game
