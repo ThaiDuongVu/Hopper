@@ -193,6 +193,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Advertisements
       objectReference: {fileID: 0}
+    - target: {fileID: 8940527405228682307, guid: 18abd7e91bf369b4a99dd802a90e1db0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18abd7e91bf369b4a99dd802a90e1db0, type: 3}
 --- !u!1001 &475594751
