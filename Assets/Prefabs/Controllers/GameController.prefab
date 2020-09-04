@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caea9794002c9d84cafab554605a71d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 9063046311802574279, guid: 7424af90676da9d4ab5be15e1e259cd3,
-    type: 3}
+  platformPrefabs:
+  - {fileID: 9063046311802574279, guid: 7424af90676da9d4ab5be15e1e259cd3, type: 3}
+  - {fileID: 9207283365697831498, guid: 438efeacd8e611f4f8d8ce81353dd40b, type: 3}
   nextPlatform: {fileID: 0}
   currentPlatform: {fileID: 0}
   mainCamera: {fileID: 0}
@@ -54,6 +55,7 @@ MonoBehaviour:
   scoreTextAnimator: {fileID: 0}
   gameOverMenu: {fileID: 0}
   player: {fileID: 0}
+  audioPlayer: {fileID: 0}
 --- !u!114 &7974293132351053782
 MonoBehaviour:
   m_ObjectHideFlags: 0

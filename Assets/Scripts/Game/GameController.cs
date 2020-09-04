@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 
     public GameState gameState { get; private set; }
 
-    public GameObject platform;
+    public GameObject[] platformPrefabs;
     public Platform nextPlatform;
     public Platform currentPlatform;
     private int _spawnDirection = 1; // 0: Left; 1: Right
@@ -89,8 +89,11 @@ public class GameController : MonoBehaviour
         // Decide whether to spawn left or right
         _spawnDirection = _spawnDirection == 0 ? 1 : 0;
 
+        // Which platform prefab to spawn a new one
+        GameObject spawnPlatform = platformPrefabs[Random.Range(0, platformPrefabs.Length)];
+
         Vector3 platformPosition = nextPlatform.transform.position;
-        Quaternion spawnRotation = platform.transform.rotation;
+        Quaternion spawnRotation = spawnPlatform.transform.rotation;
 
         // Position to spawn new platform
         Vector3 spawnPosition = _spawnDirection == 0
@@ -103,7 +106,7 @@ public class GameController : MonoBehaviour
 
         // Spawn platform
         currentPlatform = nextPlatform;
-        nextPlatform = Instantiate(platform, spawnPosition, spawnRotation).GetComponent<Platform>();
+        nextPlatform = Instantiate(spawnPlatform, spawnPosition, spawnRotation).GetComponent<Platform>();
 
         // Set camera direction
         mainCamera.currentDirection = _spawnDirection;
