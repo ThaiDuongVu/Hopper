@@ -1,2 +1,2 @@
-# PlatformRaiser
-Android game made with Unity engine.
+# Hopper
+Casual game made with Unity engine for the mobile platform.
