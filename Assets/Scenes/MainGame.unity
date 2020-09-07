@@ -2004,6 +2004,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trail
       objectReference: {fileID: 0}
+    - target: {fileID: 8038420835736425192, guid: 0dd795f1e72361c4ea04d1a3e0f88c18,
+        type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038420835736425192, guid: 0dd795f1e72361c4ea04d1a3e0f88c18,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038420835736425192, guid: 0dd795f1e72361c4ea04d1a3e0f88c18,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: Infinity
+      objectReference: {fileID: 0}
     - target: {fileID: 8038420835736425194, guid: 0dd795f1e72361c4ea04d1a3e0f88c18,
         type: 3}
       propertyPath: followTarget
