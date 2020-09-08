@@ -46,3 +46,28 @@ MonoBehaviour:
   coinPrefab: {fileID: 5465032606163086796, guid: 816af7b33bf10c543823c7f302bfa8cc,
     type: 3}
   coins: {fileID: 0}
+  coinColors:
+  - serializedVersion: 2
+    rgba: 4281746420
+  - serializedVersion: 2
+    rgba: 4284686057
+  - serializedVersion: 2
+    rgba: 4289734556
+  - serializedVersion: 2
+    rgba: 4290198119
+  - serializedVersion: 2
+    rgba: 4290072895
+  - serializedVersion: 2
+    rgba: 4294153761
+  - serializedVersion: 2
+    rgba: 4287141376
+  - serializedVersion: 2
+    rgba: 4283477836
+  - serializedVersion: 2
+    rgba: 4282117119
+  - serializedVersion: 2
+    rgba: 4278698495
+  - serializedVersion: 2
+    rgba: 4278229247
+  - serializedVersion: 2
+    rgba: 4287331680

@@ -6,6 +6,7 @@ public class PerfectPath : MonoBehaviour
     public GameObject coinPrefab;
     private readonly List<GameObject> _coins = new List<GameObject>();
     public Transform coins;
+    public Color32[] coinColors;
 
     private const float PathSize = 1f; // Distance between 2 cubes
     public int pathCount { get; set; } // Number of cubes that represent the path
@@ -48,6 +49,9 @@ public class PerfectPath : MonoBehaviour
         // Set coins position to middle position
         coins.position = pointInBetween;
 
+        // The color to spawn the coin with
+        Color32 coinColor = coinColors[Random.Range(0, coinColors.Length)];
+
         int pointIndex = 1;
 
         // While spawn coin position is higher than player
@@ -62,11 +66,11 @@ public class PerfectPath : MonoBehaviour
                 // Spawn 2 coins at either sides of the path
                 SpawnCoin(new Vector3(pointInBetween.x + pointIndex * PathSize,
                             pointInBetween.y - pointIndex * PathSize,
-                            pointInBetween.z - pointIndex * PathSize), spawnRotation);
+                            pointInBetween.z - pointIndex * PathSize), spawnRotation, coinColor);
 
                 SpawnCoin(new Vector3(pointInBetween.x - pointIndex * PathSize,
                             pointInBetween.y - pointIndex * PathSize,
-                            pointInBetween.z + pointIndex * PathSize), spawnRotation);
+                            pointInBetween.z + pointIndex * PathSize), spawnRotation, coinColor);
             }
             // Right direction
             else
@@ -75,11 +79,11 @@ public class PerfectPath : MonoBehaviour
 
                 SpawnCoin(new Vector3(pointInBetween.x - pointIndex * PathSize,
                             pointInBetween.y - pointIndex * PathSize,
-                            pointInBetween.z - pointIndex * PathSize), spawnRotation);
+                            pointInBetween.z - pointIndex * PathSize), spawnRotation, coinColor);
 
                 SpawnCoin(new Vector3(pointInBetween.x + pointIndex * PathSize,
                             pointInBetween.y - pointIndex * PathSize,
-                            pointInBetween.z + pointIndex * PathSize), spawnRotation);
+                            pointInBetween.z + pointIndex * PathSize), spawnRotation, coinColor);
             }
 
             // Next iteration
@@ -88,13 +92,16 @@ public class PerfectPath : MonoBehaviour
     }
 
     // Spawn a new coin object at position and rotation
-    private void SpawnCoin(Vector3 spawnPosition, Quaternion spawnRotation)
+    private void SpawnCoin(Vector3 spawnPosition, Quaternion spawnRotation, Color32 spawnColor)
     {
         // Institate coin
         GameObject newCoin = Instantiate(coinPrefab, spawnPosition, spawnRotation);
 
         // Set new coin parent to coins
         newCoin.transform.parent = coins;
+
+        // Set the coin color
+        newCoin.GetComponent<MeshRenderer>().material.color = spawnColor;
 
         // Add new coin to coins list and update path count
         _coins.Add(newCoin);
