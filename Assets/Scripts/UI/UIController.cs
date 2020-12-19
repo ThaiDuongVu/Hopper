@@ -7,20 +7,17 @@ public class UIController : MonoBehaviour
     public TMP_Text instructionText;
 
     public Slider forceSlider;
-    private Animator sliderAnimator;
+    private Animator _sliderAnimator;
+    private static readonly int IsSliding = Animator.StringToHash("isSliding");
 
     public TMP_Text scoreText;
     public TMP_Text highScoreText;
 
     public TMP_Text newHighScoreText;
 
-    public Button adButton;
-
-    public GameController gameController;
-
     private void Awake()
     {
-        sliderAnimator = forceSlider.GetComponent<Animator>();
+        _sliderAnimator = forceSlider.GetComponent<Animator>();
     }
 
     private void Start()
@@ -62,6 +59,6 @@ public class UIController : MonoBehaviour
     // Animator whether slider is sliding or not
     public void AnimateSlider(bool value)
     {
-        sliderAnimator.SetBool("isSliding", value);
+        _sliderAnimator.SetBool(IsSliding, value);
     }
 }

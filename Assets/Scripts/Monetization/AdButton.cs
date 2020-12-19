@@ -21,9 +21,7 @@ public class AdButton : MonoBehaviour, IUnityAdsListener
     {
         // Map the ShowRewardedVideo function to the button’s click listener:
         if (_button)
-        {
             _button.onClick.AddListener(ShowRewardedVideo);
-        }
 
         Advertisement.AddListener(this);
         Advertisement.Initialize(Ad.GameID);
@@ -32,7 +30,7 @@ public class AdButton : MonoBehaviour, IUnityAdsListener
     private void Update()
     {
         // Set interactivity to be dependent on the Placement’s status:
-        _button.interactable = Advertisement.IsReady(Ad.VideoRewardID) && !gameController.adWatched;
+        _button.interactable = Advertisement.IsReady(Ad.VideoRewardID) && !gameController.AdWatched;
     }
 
     // Implement a function for showing a rewarded video ad:
@@ -55,19 +53,19 @@ public class AdButton : MonoBehaviour, IUnityAdsListener
             case ShowResult.Finished:
                 // Reward the user for watching the ad to completion.
                 if (!_playerRewarded)
-                {
                     RewardPlayer();
-                }
-
                 break;
+
             case ShowResult.Skipped:
-                // Do not reward the user for skipping the ad.
-
+                // Do not reward the user for skipping the ad
                 break;
+
             case ShowResult.Failed:
                 // Log the error
-
                 break;
+
+            default:
+                throw new ArgumentOutOfRangeException(nameof(showResult), showResult, null);
         }
     }
 
@@ -85,7 +83,7 @@ public class AdButton : MonoBehaviour, IUnityAdsListener
     private void RewardPlayer()
     {
         player.Reset();
-        gameController.adWatched = true;
+        gameController.AdWatched = true;
 
         _playerRewarded = true;
     }

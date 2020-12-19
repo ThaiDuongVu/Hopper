@@ -2,7 +2,7 @@
 
 public class ComboSystem : MonoBehaviour
 {
-    public int comboMultiplier { get; set; }
+    public int ComboMultiplier { get; set; }
     private float _comboTimer;
     private const float ComboDecreaseFactor = 0.5f;
     private bool _isDecreasing;
@@ -17,7 +17,7 @@ public class ComboSystem : MonoBehaviour
 
     private void Start()
     {
-        comboMultiplier = 1;
+        ComboMultiplier = 1;
         _comboTimer = 0f;
 
         _isDecreasing = true;
@@ -25,40 +25,38 @@ public class ComboSystem : MonoBehaviour
 
     private void Update()
     {
-        if (_gameController.gameState == GameState.Started)
+        if (_gameController.GameState == GameState.Started)
         {
             SetCombo();
         }
         else
         {
             _comboTimer = 0f;
-            comboMultiplier = 1;
+            ComboMultiplier = 1;
         }
 
-        comboText.Scale(comboMultiplier, _comboTimer);
+        comboText.Scale(ComboMultiplier, _comboTimer);
     }
 
     // Add to combo when scoring
     public void AddCombo()
     {
-        comboMultiplier += 1;
+        ComboMultiplier += 1;
         _comboTimer = 1f;
 
-        comboText.AddCombo(comboMultiplier);
+        comboText.AddCombo(ComboMultiplier);
     }
 
     // Decrease combo timer over time and set multiplier to 0 if timer reaches 0
     private void SetCombo()
     {
         if (_isDecreasing)
-        {
             _comboTimer -= ComboDecreaseFactor * Time.deltaTime;
-        }
 
         if (_comboTimer < 0f)
         {
             _comboTimer = 0f;
-            comboMultiplier = 1;
+            ComboMultiplier = 1;
         }
     }
 }

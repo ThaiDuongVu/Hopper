@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Advertisements;
 
 public class Ad : MonoBehaviour
@@ -9,7 +8,7 @@ public class Ad : MonoBehaviour
     private const string BannerID = "banner";
     public const string VideoRewardID = "rewardedVideo";
 
-    public static bool adReady => Advertisement.IsReady(VideoRewardID);
+    private static bool AdReady => Advertisement.IsReady(VideoRewardID);
 
     private bool _bannerShown;
 
@@ -20,7 +19,7 @@ public class Ad : MonoBehaviour
 
     private void Update()
     {
-        ShowBanner();
+        if (AdReady && !_bannerShown) ShowBanner();
     }
 
     #region Banner Ad
@@ -28,8 +27,6 @@ public class Ad : MonoBehaviour
     // Show banner ad when ready
     private void ShowBanner()
     {
-        if (!adReady || _bannerShown) return;
-
         // Show the banner
         Advertisement.Banner.Show(BannerID);
 

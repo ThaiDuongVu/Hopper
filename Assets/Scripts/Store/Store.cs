@@ -36,13 +36,9 @@ public class Store : MonoBehaviour
         for (int i = 0; i < player.models.Count; i++)
         {
             if (i == 0)
-            {
-                _requiredHighScores[0] = 0;
-            }
+                _requiredHighScores[i] = 0;
             else
-            {
                 _requiredHighScores[i] = _requiredHighScores[i - 1] + 500;
-            }
         }
 
         UpdateText();
@@ -56,16 +52,12 @@ public class Store : MonoBehaviour
         if (direction.Equals("left"))
         {
             if (_playerModelIndex > 0)
-            {
                 _playerModelIndex--;
-            }
         }
         else
         {
             if (_playerModelIndex < player.models.Count - 1)
-            {
                 _playerModelIndex++;
-            }
         }
 
         UpdateText();

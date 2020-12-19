@@ -9,9 +9,9 @@ public class PerfectPath : MonoBehaviour
     public Color32[] coinColors;
 
     private const float PathSize = 1f; // Distance between 2 cubes
-    public int pathCount { get; set; } // Number of cubes that represent the path
+    public int PathCount { get; set; } // Number of cubes that represent the path
 
-    public int spawnDirection { get; set; }
+    public int SpawnDirection { get; set; }
 
     public void CalculateNextPath(Platform nextPlatform, Player player)
     {
@@ -20,7 +20,7 @@ public class PerfectPath : MonoBehaviour
         {
             Destroy(coin);
         }
-        pathCount = 0;
+        PathCount = 0;
 
         // Calculate the point in between 2 platforms
         Vector3 playerPosition = player.transform.position;
@@ -33,14 +33,11 @@ public class PerfectPath : MonoBehaviour
 
         // Rotate path to player's direction
         Vector3 coinDirection = new Vector3(-player.direction.x, 0f, -player.direction.z);
-        if (spawnDirection == 0)
-        {
+
+        if (SpawnDirection == 0)
             coins.transform.right = coinDirection;
-        }
         else
-        {
             coins.transform.forward = coinDirection;
-        }
     }
 
     // Spawn new coins while point is higher than player
@@ -61,7 +58,7 @@ public class PerfectPath : MonoBehaviour
             Quaternion spawnRotation = coinPrefab.transform.rotation;
 
             // Left direction
-            if (spawnDirection == 0)
+            if (SpawnDirection == 0)
             {
                 // Spawn 2 coins at either sides of the path
                 SpawnCoin(new Vector3(pointInBetween.x + pointIndex * PathSize,
@@ -94,7 +91,7 @@ public class PerfectPath : MonoBehaviour
     // Spawn a new coin object at position and rotation
     private void SpawnCoin(Vector3 spawnPosition, Quaternion spawnRotation, Color32 spawnColor)
     {
-        // Institate coin
+        // Instantiate coin
         GameObject newCoin = Instantiate(coinPrefab, spawnPosition, spawnRotation);
 
         // Set new coin parent to coins
@@ -105,6 +102,6 @@ public class PerfectPath : MonoBehaviour
 
         // Add new coin to coins list and update path count
         _coins.Add(newCoin);
-        pathCount++;
+        PathCount++;
     }
 }

@@ -5,7 +5,7 @@ public class GameController : MonoBehaviour
 {
     private InputManager _inputManager;
 
-    public GameState gameState { get; private set; }
+    public GameState GameState { get; private set; }
 
     public GameObject[] platformPrefabs;
     public Platform nextPlatform;
@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
 
     public Player player;
 
-    public bool adWatched { get; set; }
+    public bool AdWatched { get; set; }
 
     public AudioPlayer audioPlayer;
 
@@ -47,10 +47,10 @@ public class GameController : MonoBehaviour
 
     private void StartOnPerformed(InputAction.CallbackContext context)
     {
-        if (gameState != GameState.NotStarted) return;
+        if (GameState != GameState.NotStarted) return;
 
         _uiController.DisplayInstruction(false);
-        gameState = GameState.Started;
+        GameState = GameState.Started;
     }
 
     #endregion
@@ -109,10 +109,10 @@ public class GameController : MonoBehaviour
         nextPlatform = Instantiate(spawnPlatform, spawnPosition, spawnRotation).GetComponent<Platform>();
 
         // Set camera direction
-        mainCamera.currentDirection = _spawnDirection;
+        mainCamera.CurrentDirection = _spawnDirection;
 
         // Set perfect path direction
-        perfectPath.spawnDirection = _spawnDirection;
+        perfectPath.SpawnDirection = _spawnDirection;
 
         // Rotate player to moving direction
         player.Rotate(_spawnDirection);
@@ -122,7 +122,7 @@ public class GameController : MonoBehaviour
     public void AddScore(int value)
     {
         // Add score with combo
-        _score += value * _comboSystem.comboMultiplier;
+        _score += value * _comboSystem.ComboMultiplier;
         // Add combo
         _comboSystem.AddCombo();
 
@@ -156,7 +156,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         gameOverMenu.SetActive(true);
-        gameState = GameState.GameOver;
+        GameState = GameState.GameOver;
 
         audioPlayer.Play("GameOver");
     }
@@ -165,6 +165,6 @@ public class GameController : MonoBehaviour
     public void Reset()
     {
         gameOverMenu.SetActive(false);
-        gameState = GameState.Started;
+        GameState = GameState.Started;
     }
 }

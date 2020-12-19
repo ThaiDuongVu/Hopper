@@ -138,23 +138,17 @@ public class Player : MonoBehaviour
             // If the current force is greater than max value
             // or less than min value
             // then change force delta direction
-            if ((_hopForce >= MaxHopForce && _forceDelta > 0f) || (_hopForce <= MinHopForce && _forceDelta < 0f))
-            {
+            if (_hopForce >= MaxHopForce && _forceDelta > 0f || _hopForce <= MinHopForce && _forceDelta < 0f)
                 _forceDelta = -_forceDelta;
-            }
         }
         else
         {
             if (_hopForce > MinHopForce)
-            {
                 _hopForce -= _forceDelta * Time.deltaTime;
-            }
         }
 
         if (transform.position.y < -40f)
-        {
             Die();
-        }
     }
 
     // Die 🤷‍♂️
@@ -202,7 +196,7 @@ public class Player : MonoBehaviour
     }
 
     // Rotate to moving direction
-    public void Rotate(int movingDirection)// 0: Left, 1: Right
+    public void Rotate(int movingDirection) // 0: Left, 1: Right
     {
         Transform playerTransform = transform;
 
@@ -235,7 +229,7 @@ public class Player : MonoBehaviour
         gameController.currentPlatform.GetComponent<Animator>().SetTrigger(Land);
 
         // Camera start following player
-        mainCamera.isFollowing = true;
+        mainCamera.IsFollowing = true;
         _isGrounded = true;
 
         // Pad active
@@ -247,7 +241,7 @@ public class Player : MonoBehaviour
         // Add an explosion
         Instantiate(explosion, transform.position, explosion.transform.rotation);
 
-        if (gameController.gameState == GameState.Started)
+        if (gameController.GameState == GameState.Started)
         {
             // Init pop up text
             popUpText.Init(quotes[Random.Range(0, quotes.Length)]);
@@ -269,7 +263,7 @@ public class Player : MonoBehaviour
         if (!other.CompareTag("Coin")) return;
 
         // Decrease path count
-        perfectPath.pathCount--;
+        perfectPath.PathCount--;
 
         // Add score
         gameController.AddScore(1);
@@ -282,10 +276,8 @@ public class Player : MonoBehaviour
         cameraShake.ShakeLight();
 
         // If a perfect path then celebrate
-        if (perfectPath.pathCount <= 0)
-        {
+        if (perfectPath.PathCount <= 0)
             Celebrate();
-        }
 
         // Set coin inactive
         // Not destroy the object because it will be destroyed later
@@ -299,9 +291,7 @@ public class Player : MonoBehaviour
     {
         // Deactivate all models
         foreach (GameObject model in models)
-        {
             model.SetActive(false);
-        }
 
         // Activate active model
         models[modelIndex].SetActive(true);

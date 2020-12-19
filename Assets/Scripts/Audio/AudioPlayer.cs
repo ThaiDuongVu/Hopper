@@ -4,15 +4,15 @@ public class AudioPlayer : MonoBehaviour
 {
     public AudioSource[] audioSources;
 
-    private float[] defaultPitches;
+    private float[] _defaultPitches;
 
     private void Start()
     {
-        defaultPitches = new float[audioSources.Length];
+        _defaultPitches = new float[audioSources.Length];
 
-        for (int i = 0; i < defaultPitches.Length; i++)
+        for (int i = 0; i < _defaultPitches.Length; i++)
         {
-            defaultPitches[i] = audioSources[i].pitch;
+            _defaultPitches[i] = audioSources[i].pitch;
         }
     }
 
@@ -21,12 +21,11 @@ public class AudioPlayer : MonoBehaviour
     {
         foreach (AudioSource audioSource in audioSources)
         {
-            if (audioSource.name.Equals(sourceName))
-            {
-                audioSource.Play();
-                audioSource.pitch += 0.1f;
-                break;
-            }
+            if (!audioSource.name.Equals(sourceName)) continue;
+
+            audioSource.Play();
+            audioSource.pitch += 0.1f;
+            break;
         }
     }
 
@@ -35,11 +34,10 @@ public class AudioPlayer : MonoBehaviour
     {
         foreach (AudioSource audioSource in audioSources)
         {
-            if (audioSource.name.Equals(sourceName))
-            {
-                audioSource.Stop();
-                break;
-            }
+            if (!audioSource.name.Equals(sourceName)) continue;
+
+            audioSource.Stop();
+            break;
         }
     }
 
@@ -47,8 +45,6 @@ public class AudioPlayer : MonoBehaviour
     public void ResetPitch()
     {
         for (int i = 0; i < audioSources.Length; i++)
-        {
-            audioSources[i].pitch = defaultPitches[i];
-        }
+            audioSources[i].pitch = _defaultPitches[i];
     }
 }
