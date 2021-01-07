@@ -3,25 +3,25 @@ using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {
-    private InputManager _inputManager;
+    private InputManager inputManager;
 
     public GameState GameState { get; private set; }
 
     public GameObject[] platformPrefabs;
     public Platform nextPlatform;
     public Platform currentPlatform;
-    private int _spawnDirection = 1; // 0: Left; 1: Right
+    private int spawnDirection = 1; // 0: Left; 1: Right
 
     public MainCamera mainCamera;
     public PerfectPath perfectPath;
 
-    private UIController _uiController;
+    private UIController uiController;
 
-    private int _score;
-    private int _highScore;
-    private bool _newHighScore;
+    private int score;
+    private int highScore;
+    private bool newHighScore;
 
-    private ComboSystem _comboSystem;
+    private ComboSystem comboSystem;
 
     public Animator scoreTextAnimator;
     private static readonly int Score = Animator.StringToHash("score");
@@ -36,11 +36,11 @@ public class GameController : MonoBehaviour
 
     private void OnEnable()
     {
-        _inputManager = new InputManager();
+        inputManager = new InputManager();
 
-        _inputManager.Game.Start.performed += StartOnPerformed;
+        inputManager.Game.Start.performed += StartOnPerformed;
 
-        _inputManager.Enable();
+        inputManager.Enable();
     }
 
     #region Input Methods
@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
     {
         if (GameState != GameState.NotStarted) return;
 
-        _uiController.DisplayInstruction(false);
+        uiController.DisplayInstruction(false);
         GameState = GameState.Started;
     }
 
@@ -57,29 +57,29 @@ public class GameController : MonoBehaviour
 
     private void OnDisable()
     {
-        _inputManager.Disable();
+        inputManager.Disable();
     }
 
     private void Awake()
     {
-        _uiController = GetComponent<UIController>();
-        _comboSystem = GetComponent<ComboSystem>();
+        uiController = GetComponent<UIController>();
+        comboSystem = GetComponent<ComboSystem>();
     }
 
     private void Start()
     {
         // Display the instruction on startup
-        _uiController.DisplayInstruction(true, "Tap and hold to start hopping");
+        uiController.DisplayInstruction(true, "Tap and hold to start hopping");
 
-        _uiController.UpdateHighScore();
-        _highScore = PlayerPrefs.GetInt("HighScore", 0);
+        uiController.UpdateHighScore();
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
 
         gameOverMenu.SetActive(false);
     }
 
     private void Update()
     {
-        _uiController.DisplayScore(_score);
+        uiController.DisplayScore(score);
         CheckHighScore();
     }
 
@@ -87,7 +87,7 @@ public class GameController : MonoBehaviour
     public void SpawnPlatform()
     {
         // Decide whether to spawn left or right
-        _spawnDirection = _spawnDirection == 0 ? 1 : 0;
+        spawnDirection = spawnDirection == 0 ? 1 : 0;
 
         // Which platform prefab to spawn a new one
         GameObject spawnPlatform = platformPrefabs[Random.Range(0, platformPrefabs.Length)];
@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour
         Quaternion spawnRotation = spawnPlatform.transform.rotation;
 
         // Position to spawn new platform
-        Vector3 spawnPosition = _spawnDirection == 0
+        Vector3 spawnPosition = spawnDirection == 0
             ? new Vector3(platformPosition.x - 10f, platformPosition.y, platformPosition.z + 10f)
             : new Vector3(platformPosition.x + 10f, platformPosition.y, platformPosition.z + 10f);
 
@@ -109,22 +109,22 @@ public class GameController : MonoBehaviour
         nextPlatform = Instantiate(spawnPlatform, spawnPosition, spawnRotation).GetComponent<Platform>();
 
         // Set camera direction
-        mainCamera.CurrentDirection = _spawnDirection;
+        mainCamera.CurrentDirection = spawnDirection;
 
         // Set perfect path direction
-        perfectPath.SpawnDirection = _spawnDirection;
+        perfectPath.SpawnDirection = spawnDirection;
 
         // Rotate player to moving direction
-        player.Rotate(_spawnDirection);
+        player.Rotate(spawnDirection);
     }
 
     // Add a value to score
     public void AddScore(int value)
     {
         // Add score with combo
-        _score += value * _comboSystem.ComboMultiplier;
+        score += value * comboSystem.ComboMultiplier;
         // Add combo
-        _comboSystem.AddCombo();
+        comboSystem.AddCombo();
 
         // Pop the score text
         scoreTextAnimator.SetTrigger(Score);
@@ -133,22 +133,22 @@ public class GameController : MonoBehaviour
     // Check if current score is greater than high score, if so save the new high score
     private void CheckHighScore()
     {
-        if (_score <= _highScore) return;
+        if (score <= highScore) return;
 
         // Set new high score
-        _highScore = _score;
-        PlayerPrefs.SetInt("HighScore", _highScore);
+        highScore = score;
+        PlayerPrefs.SetInt("HighScore", highScore);
 
         // Update high score display
-        _uiController.UpdateHighScore();
+        uiController.UpdateHighScore();
 
         // Celebrate new high score
-        if (!_newHighScore)
+        if (!newHighScore)
         {
-            _newHighScore = true;
+            newHighScore = true;
             player.Celebrate();
 
-            _uiController.DisplayNewHighScore(true);
+            uiController.DisplayNewHighScore(true);
         }
     }
 

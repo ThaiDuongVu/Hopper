@@ -6,19 +6,19 @@ public class GameView : MonoBehaviour
     private const float TargetAspect = 9f / 18f;
 
     // The game window's current aspect ratio
-    private readonly float _windowAspect = Screen.width / (float)Screen.height;
+    private readonly float windowAspect = Screen.width / (float)Screen.height;
 
     // Current viewport width and height should be scaled by this amount
-    private float _scaleHeight;
-    private float _scaleWidth;
+    private float scaleHeight;
+    private float scaleWidth;
 
-    private Camera _camera;
-    private Rect _rect;
+    private new Camera camera;
+    private Rect rect;
 
     private void Awake()
     {
-        _camera = GetComponent<Camera>();
-        _rect = _camera.rect;
+        camera = GetComponent<Camera>();
+        rect = camera.rect;
     }
 
     private void Start()
@@ -29,25 +29,25 @@ public class GameView : MonoBehaviour
     // Force the game's aspect ratio for better control of game's view
     private void ForceAspectRatio()
     {
-        _scaleHeight = _windowAspect / TargetAspect;
+        scaleHeight = windowAspect / TargetAspect;
 
         // If scaled height is less than current height, add letterbox
-        if (_scaleHeight < 1f)
+        if (scaleHeight < 1f)
         {
-            _scaleWidth = 1f;
+            scaleWidth = 1f;
         }
         else // Else add pillar box
         {
-            _scaleWidth = 1f / _scaleHeight;
-            _scaleHeight = 1f;
+            scaleWidth = 1f / scaleHeight;
+            scaleHeight = 1f;
         }
 
-        _rect.width = _scaleWidth;
-        _rect.height = _scaleHeight;
+        rect.width = scaleWidth;
+        rect.height = scaleHeight;
 
-        _rect.x = (1f - _scaleWidth) / 2f;
-        _rect.y = (1f - _scaleHeight) / 2f;
+        rect.x = (1f - scaleWidth) / 2f;
+        rect.y = (1f - scaleHeight) / 2f;
 
-        _camera.rect = _rect;
+        camera.rect = rect;
     }
 }

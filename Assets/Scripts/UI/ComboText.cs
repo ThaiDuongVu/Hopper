@@ -3,7 +3,7 @@ using TMPro;
 
 public class ComboText : MonoBehaviour
 {
-    private Animator _animator;
+    private Animator animator;
     public TMP_Text text;
 
     private static readonly int Score = Animator.StringToHash("score");
@@ -12,7 +12,7 @@ public class ComboText : MonoBehaviour
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     // Add new combo
@@ -20,7 +20,7 @@ public class ComboText : MonoBehaviour
     {
         Rotate();
 
-        _animator.SetTrigger(Score);
+        animator.SetTrigger(Score);
         text.text = "x" + multiplier.ToString();
     }
 

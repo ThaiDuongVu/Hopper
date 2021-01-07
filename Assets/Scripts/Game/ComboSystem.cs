@@ -3,46 +3,46 @@
 public class ComboSystem : MonoBehaviour
 {
     public int ComboMultiplier { get; set; }
-    private float _comboTimer;
+    private float comboTimer;
     private const float ComboDecreaseFactor = 0.5f;
-    private bool _isDecreasing;
+    private bool isDecreasing;
 
-    private GameController _gameController;
+    private GameController gameController;
     public ComboText comboText;
 
     private void Awake()
     {
-        _gameController = GetComponent<GameController>();
+        gameController = GetComponent<GameController>();
     }
 
     private void Start()
     {
         ComboMultiplier = 1;
-        _comboTimer = 0f;
+        comboTimer = 0f;
 
-        _isDecreasing = true;
+        isDecreasing = true;
     }
 
     private void Update()
     {
-        if (_gameController.GameState == GameState.Started)
+        if (gameController.GameState == GameState.Started)
         {
             SetCombo();
         }
         else
         {
-            _comboTimer = 0f;
+            comboTimer = 0f;
             ComboMultiplier = 1;
         }
 
-        comboText.Scale(ComboMultiplier, _comboTimer);
+        comboText.Scale(ComboMultiplier, comboTimer);
     }
 
     // Add to combo when scoring
     public void AddCombo()
     {
         ComboMultiplier += 1;
-        _comboTimer = 1f;
+        comboTimer = 1f;
 
         comboText.AddCombo(ComboMultiplier);
     }
@@ -50,12 +50,12 @@ public class ComboSystem : MonoBehaviour
     // Decrease combo timer over time and set multiplier to 0 if timer reaches 0
     private void SetCombo()
     {
-        if (_isDecreasing)
-            _comboTimer -= ComboDecreaseFactor * Time.deltaTime;
+        if (isDecreasing)
+            comboTimer -= ComboDecreaseFactor * Time.deltaTime;
 
-        if (_comboTimer < 0f)
+        if (comboTimer < 0f)
         {
-            _comboTimer = 0f;
+            comboTimer = 0f;
             ComboMultiplier = 1;
         }
     }

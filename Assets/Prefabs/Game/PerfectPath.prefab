@@ -45,29 +45,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 5465032606163086796, guid: 816af7b33bf10c543823c7f302bfa8cc,
     type: 3}
-  coins: {fileID: 0}
+  coinTransform: {fileID: 0}
   coinColors:
   - serializedVersion: 2
-    rgba: 4281746420
+    rgba: 4294156287
   - serializedVersion: 2
-    rgba: 4284686057
+    rgba: 4283943678
   - serializedVersion: 2
-    rgba: 4289734556
+    rgba: 4285230079
   - serializedVersion: 2
-    rgba: 4290198119
+    rgba: 4288794909
   - serializedVersion: 2
-    rgba: 4290072895
+    rgba: 4292897011
   - serializedVersion: 2
-    rgba: 4294153761
+    rgba: 4282621951
   - serializedVersion: 2
-    rgba: 4287141376
+    rgba: 4283650798
   - serializedVersion: 2
-    rgba: 4283477836
+    rgba: 4286884880
   - serializedVersion: 2
-    rgba: 4282117119
+    rgba: 4291635039
   - serializedVersion: 2
-    rgba: 4278698495
+    rgba: 4285818199
   - serializedVersion: 2
-    rgba: 4278229247
+    rgba: 4288979713
   - serializedVersion: 2
-    rgba: 4287331680
+    rgba: 4288094004
+  - serializedVersion: 2
+    rgba: 4289172867
+  - serializedVersion: 2
+    rgba: 4281411618

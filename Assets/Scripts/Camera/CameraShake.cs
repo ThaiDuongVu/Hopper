@@ -2,15 +2,15 @@
 
 public class CameraShake : MonoBehaviour
 {
-    private float _shakeDuration;
-    private float _shakeIntensity;
-    private float _decreaseFactor;
+    private float shakeDuration;
+    private float shakeIntensity;
+    private float decreaseFactor;
 
-    private Vector3 _originalPosition;
+    private Vector3 originalPosition;
 
     private void Start()
     {
-        _originalPosition = transform.position;
+        originalPosition = transform.position;
     }
 
     private void Update()
@@ -22,35 +22,35 @@ public class CameraShake : MonoBehaviour
     private void Randomize()
     {
         // While shake duration is greater than 0
-        if (_shakeDuration > 0)
+        if (shakeDuration > 0)
         {
             // Randomize position
-            transform.localPosition = _originalPosition + Random.insideUnitSphere * _shakeIntensity;
+            transform.localPosition = originalPosition + Random.insideUnitSphere * shakeIntensity;
 
             // Decrease shake duration
-            _shakeDuration -= Time.deltaTime * _decreaseFactor;
+            shakeDuration -= Time.deltaTime * decreaseFactor;
         }
         // If shake duration reaches 0
         else
         {
             // Reset everything
-            _shakeDuration = 0f;
-            transform.localPosition = _originalPosition;
+            shakeDuration = 0f;
+            transform.localPosition = originalPosition;
         }
     }
 
     // Shake the camera
     public void Shake()
     {
-        _shakeDuration = 0.2f;
-        _shakeIntensity = 0.3f;
-        _decreaseFactor = 2f;
+        shakeDuration = 0.2f;
+        shakeIntensity = 0.3f;
+        decreaseFactor = 2f;
     }
 
     public void ShakeLight()
     {
-        _shakeDuration = 0.1f;
-        _shakeIntensity = 0.1f;
-        _decreaseFactor = 2f;
+        shakeDuration = 0.1f;
+        shakeIntensity = 0.1f;
+        decreaseFactor = 2f;
     }
 }

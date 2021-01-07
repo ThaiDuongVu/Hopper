@@ -4,8 +4,8 @@ using System.Collections.Generic;
 public class PerfectPath : MonoBehaviour
 {
     public GameObject coinPrefab;
-    private readonly List<GameObject> _coins = new List<GameObject>();
-    public Transform coins;
+    private readonly List<GameObject> coins = new List<GameObject>();
+    public Transform coinTransform;
     public Color32[] coinColors;
 
     private const float PathSize = 1f; // Distance between 2 cubes
@@ -16,7 +16,7 @@ public class PerfectPath : MonoBehaviour
     public void CalculateNextPath(Platform nextPlatform, Player player)
     {
         // Destroy old coins
-        foreach (GameObject coin in _coins)
+        foreach (GameObject coin in coins)
         {
             Destroy(coin);
         }
@@ -35,16 +35,16 @@ public class PerfectPath : MonoBehaviour
         Vector3 coinDirection = new Vector3(-player.direction.x, 0f, -player.direction.z);
 
         if (SpawnDirection == 0)
-            coins.transform.right = coinDirection;
+            coinTransform.transform.right = coinDirection;
         else
-            coins.transform.forward = coinDirection;
+            coinTransform.transform.forward = coinDirection;
     }
 
     // Spawn new coins while point is higher than player
     private void SpawnPath(Vector3 pointInBetween, Player player)
     {
         // Set coins position to middle position
-        coins.position = pointInBetween;
+        coinTransform.position = pointInBetween;
 
         // The color to spawn the coin with
         Color32 coinColor = coinColors[Random.Range(0, coinColors.Length)];
@@ -95,13 +95,13 @@ public class PerfectPath : MonoBehaviour
         GameObject newCoin = Instantiate(coinPrefab, spawnPosition, spawnRotation);
 
         // Set new coin parent to coins
-        newCoin.transform.parent = coins;
+        newCoin.transform.parent = coinTransform;
 
         // Set the coin color
         newCoin.GetComponent<MeshRenderer>().material.color = spawnColor;
 
         // Add new coin to coins list and update path count
-        _coins.Add(newCoin);
+        coins.Add(newCoin);
         PathCount++;
     }
 }

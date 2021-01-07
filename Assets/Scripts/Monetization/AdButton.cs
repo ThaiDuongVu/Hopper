@@ -5,23 +5,23 @@ using UnityEngine.Advertisements;
 
 public class AdButton : MonoBehaviour, IUnityAdsListener
 {
-    private Button _button;
+    private Button button;
 
     public GameController gameController;
     public Player player;
 
-    private bool _playerRewarded;
+    private bool playerRewarded;
 
     private void Awake()
     {
-        _button = GetComponent<Button>();
+        button = GetComponent<Button>();
     }
 
     private void Start()
     {
         // Map the ShowRewardedVideo function to the button’s click listener:
-        if (_button)
-            _button.onClick.AddListener(ShowRewardedVideo);
+        if (button)
+            button.onClick.AddListener(ShowRewardedVideo);
 
         Advertisement.AddListener(this);
         Advertisement.Initialize(Ad.GameID);
@@ -30,7 +30,7 @@ public class AdButton : MonoBehaviour, IUnityAdsListener
     private void Update()
     {
         // Set interactivity to be dependent on the Placement’s status:
-        _button.interactable = Advertisement.IsReady(Ad.VideoRewardID) && !gameController.AdWatched;
+        button.interactable = Advertisement.IsReady(Ad.VideoRewardID) && !gameController.AdWatched;
     }
 
     // Implement a function for showing a rewarded video ad:
@@ -52,7 +52,7 @@ public class AdButton : MonoBehaviour, IUnityAdsListener
             // Define conditional logic for each ad completion status:
             case ShowResult.Finished:
                 // Reward the user for watching the ad to completion.
-                if (!_playerRewarded)
+                if (!playerRewarded)
                     RewardPlayer();
                 break;
 
@@ -85,6 +85,6 @@ public class AdButton : MonoBehaviour, IUnityAdsListener
         player.Reset();
         gameController.AdWatched = true;
 
-        _playerRewarded = true;
+        playerRewarded = true;
     }
 }

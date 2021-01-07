@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1793778086}
   - component: {fileID: 1793778085}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: DirectionalLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,6 +90,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 4.2e-43, y: 9.4e-44, z: 0, w: 0.0000000031933833}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!1 &8402890342852762694

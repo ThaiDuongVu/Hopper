@@ -4,15 +4,15 @@ public class AudioPlayer : MonoBehaviour
 {
     public AudioSource[] audioSources;
 
-    private float[] _defaultPitches;
+    private float[] defaultPitches;
 
     private void Start()
     {
-        _defaultPitches = new float[audioSources.Length];
+        defaultPitches = new float[audioSources.Length];
 
-        for (int i = 0; i < _defaultPitches.Length; i++)
+        for (int i = 0; i < defaultPitches.Length; i++)
         {
-            _defaultPitches[i] = audioSources[i].pitch;
+            defaultPitches[i] = audioSources[i].pitch;
         }
     }
 
@@ -45,6 +45,6 @@ public class AudioPlayer : MonoBehaviour
     public void ResetPitch()
     {
         for (int i = 0; i < audioSources.Length; i++)
-            audioSources[i].pitch = _defaultPitches[i];
+            audioSources[i].pitch = defaultPitches[i];
     }
 }

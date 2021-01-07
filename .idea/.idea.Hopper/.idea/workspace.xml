@@ -20,24 +20,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5799f197-c34b-4c60-99d6-923eb27eec86" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/UIPalette.colors" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/UIPalette.colors.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/WorldPalette.colors" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/WorldPalette.colors.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Rendering.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Rendering/ForwardRenderer.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Rendering/ForwardRenderer.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Rendering/PostProcessVolume.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Rendering/PostProcessVolume.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Rendering/UniversalRP.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Rendering/UniversalRP.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MainGameSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MainGameSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Publishing/GooglePlayButton.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hopper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Menu/Intro.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Menu/Intro.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Effects/Explosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Effects/Explosion.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Effects/Fireworks.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Effects/Fireworks.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Effects/SmallExplosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Effects/SmallExplosion.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Effects/Trail.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Effects/Trail.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Coin.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Coin.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Pad.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Pad.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Platform/Variety1/Round0.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Platform/Variety1/Round0.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Platform/Variety1/Round1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Platform/Variety1/Round1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Platform/Variety1/Round2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Platform/Variety1/Round2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Platform/Variety2/Round0.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Platform/Variety2/Round0.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Platform/Variety2/Round1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Platform/Variety2/Round1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Platform/Variety2/Round2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Platform/Variety2/Round2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Player/Cat/CatBody.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Player/Cat/CatBody.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Player/Cat/CatEar.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Player/Cat/CatEar.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Player/Cat/CatHead.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Player/Cat/CatHead.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Player/Cube/Cube.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Player/Cube/Cube.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Player/PileOfShit/Body.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Player/PileOfShit/Body.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Player/RubberDuck/DuckBody.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Player/RubberDuck/DuckBody.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Player/RubberDuck/DuckMouth.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Player/RubberDuck/DuckMouth.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Player/Superman/Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Player/Superman/Blue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Player/Superman/Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Player/Superman/Red.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Player/Superman/Skin.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Player/Superman/Skin.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Player/TeddyBear/Body.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Player/TeddyBear/Body.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game/Player/TeddyBear/Limbs.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game/Player/TeddyBear/Limbs.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Effects/Lights.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Effects/Lights.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Game/Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Game/Camera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Game/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Game/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Menu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Menu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/MainCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/MainCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraShake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraShake.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/GameView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/GameView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/ComboSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/ComboSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/PerfectPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/PerfectPath.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/SceneLoader.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monetization/Ad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monetization/Ad.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monetization/AdButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monetization/AdButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Store/Store.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Store/Store.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ComboText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ComboText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PopUpText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PopUpText.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,16 +99,21 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioPlayer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/MainCamera.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraShake.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Camera/GameView.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/ComboSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/PerfectPath.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Player.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Store/Store.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/SceneLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Monetization/Ad.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Monetization/AdButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Store/Store.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/ComboText.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/PopUpText.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioPlayer.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1gNLatifVDtBcfg9vVKBIlAYmMb" />
@@ -75,6 +129,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -116,6 +171,7 @@
       <workItem from="1598824361154" duration="25000" />
       <workItem from="1598885947690" duration="2328000" />
       <workItem from="1608387745344" duration="1118000" />
+      <workItem from="1610047114478" duration="322000" />
     </task>
     <servers />
   </component>

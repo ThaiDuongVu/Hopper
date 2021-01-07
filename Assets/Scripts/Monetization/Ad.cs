@@ -10,7 +10,7 @@ public class Ad : MonoBehaviour
 
     private static bool AdReady => Advertisement.IsReady(VideoRewardID);
 
-    private bool _bannerShown;
+    private bool bannerShown;
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class Ad : MonoBehaviour
 
     private void Update()
     {
-        if (AdReady && !_bannerShown) ShowBanner();
+        if (AdReady && !bannerShown) ShowBanner();
     }
 
     #region Banner Ad
@@ -33,7 +33,7 @@ public class Ad : MonoBehaviour
         // Set banner position to be top center
         Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
 
-        _bannerShown = true;
+        bannerShown = true;
     }
 
     #endregion

@@ -4,17 +4,17 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
-    private InputManager _inputManager;
+    private InputManager inputManager;
 
-    private Rigidbody _rigidBody;
+    private Rigidbody rigidBody;
 
-    private float _hopForce;
-    private float _forceDelta = 500f;
+    private float hopForce;
+    private float forceDelta = 500f;
     private const float MinHopForce = 0f;
     private const float MaxHopForce = 1000f;
 
-    private bool _isCharging;
-    private bool _isGrounded;
+    private bool isCharging;
+    private bool isGrounded;
 
     public Vector3 direction;
 
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     public PopUpText popUpText;
     public string[] quotes;
 
-    private Animator _animator;
+    private Animator animator;
     private static readonly int Charge = Animator.StringToHash("charge");
     private static readonly int Hop = Animator.StringToHash("hop");
     private static readonly int Land = Animator.StringToHash("land");
@@ -47,37 +47,37 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        _inputManager = new InputManager();
+        inputManager = new InputManager();
 
-        _inputManager.Player.Charge.performed += ChargeOnPerformed;
-        _inputManager.Player.Charge.canceled += ChargeOnCanceled;
+        inputManager.Player.Charge.performed += ChargeOnPerformed;
+        inputManager.Player.Charge.canceled += ChargeOnCanceled;
 
-        _inputManager.Enable();
+        inputManager.Enable();
     }
 
     #region Input Methods
 
     private void ChargeOnPerformed(InputAction.CallbackContext context)
     {
-        if (!_isGrounded) return;
+        if (!isGrounded) return;
 
         // Play charge sound
         audioPlayer.Play("Charge");
 
         // Is charging
-        _isCharging = true;
+        isCharging = true;
 
         // Animate the force slider
         uiController.AnimateSlider(true);
 
         // Set to charge animation
-        _animator.SetTrigger(Charge);
+        animator.SetTrigger(Charge);
         gameController.currentPlatform.GetComponent<Animator>().SetTrigger(Charge);
     }
 
     private void ChargeOnCanceled(InputAction.CallbackContext context)
     {
-        if (!_isCharging) return;
+        if (!isCharging) return;
 
         // Stop charge sound
         audioPlayer.Stop("Charge");
@@ -85,23 +85,23 @@ public class Player : MonoBehaviour
         audioPlayer.Play("Hop");
 
         // No longer charging
-        _isCharging = false;
+        isCharging = false;
 
         // Is not grounded anymore
-        _isGrounded = false;
+        isGrounded = false;
 
         // Set pad invisible
         pad.SetActive(false);
 
         // Add hop force at direction
-        _rigidBody.AddForce(_hopForce * direction);
+        rigidBody.AddForce(hopForce * direction);
 
         // Animate the force slider
         uiController.AnimateSlider(false);
 
         //Set to hop animation
-        _animator.ResetTrigger(Charge);
-        _animator.SetTrigger(Hop);
+        animator.ResetTrigger(Charge);
+        animator.SetTrigger(Hop);
         gameController.currentPlatform.GetComponent<Animator>().SetTrigger(Hop);
 
         // Shake camera
@@ -112,13 +112,13 @@ public class Player : MonoBehaviour
 
     private void OnDisable()
     {
-        _inputManager.Disable();
+        inputManager.Disable();
     }
 
     private void Awake()
     {
-        _rigidBody = GetComponent<Rigidbody>();
-        _animator = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -129,22 +129,22 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        uiController.DisplayForceSlider(_hopForce, MaxHopForce);
+        uiController.DisplayForceSlider(hopForce, MaxHopForce);
 
-        if (_isCharging)
+        if (isCharging)
         {
-            _hopForce += _forceDelta * Time.deltaTime;
+            hopForce += forceDelta * Time.deltaTime;
 
             // If the current force is greater than max value
             // or less than min value
             // then change force delta direction
-            if (_hopForce >= MaxHopForce && _forceDelta > 0f || _hopForce <= MinHopForce && _forceDelta < 0f)
-                _forceDelta = -_forceDelta;
+            if (hopForce >= MaxHopForce && forceDelta > 0f || hopForce <= MinHopForce && forceDelta < 0f)
+                forceDelta = -forceDelta;
         }
         else
         {
-            if (_hopForce > MinHopForce)
-                _hopForce -= _forceDelta * Time.deltaTime;
+            if (hopForce > MinHopForce)
+                hopForce -= forceDelta * Time.deltaTime;
         }
 
         if (transform.position.y < -40f)
@@ -225,12 +225,12 @@ public class Player : MonoBehaviour
         gameController.SpawnPlatform();
 
         // Trigger landing animations
-        _animator.SetTrigger(Land);
+        animator.SetTrigger(Land);
         gameController.currentPlatform.GetComponent<Animator>().SetTrigger(Land);
 
         // Camera start following player
         mainCamera.IsFollowing = true;
-        _isGrounded = true;
+        isGrounded = true;
 
         // Pad active
         pad.SetActive(true);
