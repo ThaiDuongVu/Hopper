@@ -58,6 +58,7 @@ MonoBehaviour:
   gameOverMenu: {fileID: 0}
   player: {fileID: 0}
   audioPlayer: {fileID: 0}
+  volumeProfile: {fileID: 11400000, guid: 1f1dce30478b0ee4aa7b1de7b7be937f, type: 2}
 --- !u!114 &7974293132351053782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,5 +89,3 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   highScoreText: {fileID: 0}
   newHighScoreText: {fileID: 0}
-  adButton: {fileID: 0}
-  gameController: {fileID: 7755544758492131810}

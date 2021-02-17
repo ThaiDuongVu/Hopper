@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class GameController : MonoBehaviour
 {
@@ -34,6 +36,9 @@ public class GameController : MonoBehaviour
 
     public AudioPlayer audioPlayer;
 
+    public VolumeProfile volumeProfile;
+    private DepthOfField depthOfField;
+
     private void OnEnable()
     {
         inputManager = new InputManager();
@@ -64,6 +69,8 @@ public class GameController : MonoBehaviour
     {
         uiController = GetComponent<UIController>();
         comboSystem = GetComponent<ComboSystem>();
+
+        volumeProfile.TryGet(out depthOfField);
     }
 
     private void Start()
@@ -155,6 +162,8 @@ public class GameController : MonoBehaviour
     // When game over
     public void GameOver()
     {
+        SetDepthOfField(true);
+
         gameOverMenu.SetActive(true);
         GameState = GameState.GameOver;
 
@@ -166,5 +175,11 @@ public class GameController : MonoBehaviour
     {
         gameOverMenu.SetActive(false);
         GameState = GameState.Started;
+    }
+
+    // Enable/disable depth of field effect
+    public void SetDepthOfField(bool value)
+    {
+        depthOfField.active = value;
     }
 }
